@@ -1,0 +1,989 @@
+Test-Case: output
+Description: Test decimal floating point number with float type descriptor.
+Labels: float, FloatTypeSuffix
+
+public function main() {
+    float a = 0;
+    io:println(a); // @output 0.0
+
+    a = 9;
+    io:println(a); // @output 9.0
+
+    a = 5676345;
+    io:println(a); // @output 5676345.0
+
+    a = 56763457;
+    io:println(a); // @output 5.6763457E7
+
+    a = 0f;
+    io:println(a); // @output 0.0
+  
+    a = 5676345f;
+    io:println(a); // @output 5676345.0
+
+    a = 9F;
+    io:println(a); // @output 9.0
+
+    a = 56763457F;
+    io:println(a); // @output 5.6763457E7
+
+    a = 0.0;
+    io:println(a); // @output 0.0
+
+    a = 0.00;
+    io:println(a); // @output 0.0
+
+    a = 0.234;
+    io:println(a); // @output 0.234
+
+    a = 9.0;
+    io:println(a); // @output 9.0
+
+    a = 9.5;
+    io:println(a); // @output 9.5
+
+    a = 7.406;
+    io:println(a); // @output 7.406
+
+    a = 23676734.8;
+    io:println(a); // @output 2.36767348E7
+
+    a = 763756557571627.87467676867368;
+    io:println(a); // @output 7.637565575716279E14
+
+    a = 0.0000000087467676867368;
+    io:println(a); // @output 8.7467676867368E-9
+
+    a = .0;
+    io:println(a); // @output 0.0
+
+    a = .0000;
+    io:println(a); // @output 0.0
+
+    a = .267848989;
+    io:println(a); // @output 0.267848989
+
+    a = .267848989787698567544322445678990;
+    io:println(a); // @output 0.26784898978769855
+
+    a = .0000000087467676867368;
+    io:println(a); // @output 8.7467676867368E-9
+
+    a = .0000000087467676867368787675750039;
+    io:println(a); // @output 8.74676768673688E-9
+
+    a = 7.4067877356452635432f;
+    io:println(a); // @output 7.406787735645263
+
+    a = 23676734.8F;
+    io:println(a); // @output 2.36767348E7
+
+    a = .0000f;
+    io:println(a); // @output 0.0
+
+    a = .00267848989F;
+    io:println(a); // @output 0.00267848989
+
+    a = .000267848989F;
+    io:println(a); // @output 2.67848989E-4
+
+    a = 7.406e+0;
+    io:println(a); // @output 7.406
+
+    a = 23676734.8E-0;
+    io:println(a); // @output 2.36767348E7
+
+    a = .3564E+0;
+    io:println(a); // @output 0.3564
+
+    a = .267848989e-0;
+    io:println(a); // @output 0.267848989
+
+    a = .0000E+12;
+    io:println(a); // @output 0.0
+
+    a = 7.406e+201;
+    io:println(a); // @output 7.406E201
+
+    a = 23676734.8E-21;
+    io:println(a); // @output 2.36767348E-14
+
+    a = .3564E+12;
+    io:println(a); // @output 3.564E11
+
+    a = .267848989e-124;
+    io:println(a); // @output 2.67848989E-125
+
+    a = 7.406e+0f;
+    io:println(a); // @output 7.406
+
+    a = 23676734.8E-0F;
+    io:println(a); // @output 2.36767348E7
+
+    a = .00001E+123f;
+    io:println(a); // @output 1.0E118
+
+    a = .267848989e-14F;
+    io:println(a); // @output 2.67848989E-15
+
+    a = 0E+0;
+    io:println(a); // @output 0.0
+
+    a = 0e-0;
+    io:println(a); // @output 0.0
+
+    a = 7e+56;
+    io:println(a); // @output 7.0E56
+
+    a = 7e-56;
+    io:println(a); // @output 7.0E-56
+
+    a = 785E+207;
+    io:println(a); // @output 7.85E209
+
+    a = 785E-207;
+    io:println(a); // @output 7.85E-205
+
+    a = 7e+56f;
+    io:println(a); // @output 7.0E56
+
+    a = 7e-56F;
+    io:println(a); // @output 7.0E-56
+
+    a = 785E+207F;
+    io:println(a); // @output 7.85E209
+
+    a = 785E-207f;
+    io:println(a); // @output 7.85E-205
+}
+
+Test-Case: output
+Description: Test decimal floating point number with decimal type descriptor.
+Labels: decimal, DecimalTypeSuffix
+
+public function main() {
+    decimal g = 0;
+    io:println(g); // @output 0
+
+    g = 9;
+    io:println(g); // @output 9
+
+    g = 5676345;
+    io:println(g); // @output 5676345
+
+    g = 56763457;
+    io:println(g); // @output 56763457
+
+    g = 0d;
+    io:println(g); // @output 0
+  
+    g = 5676345d;
+    io:println(g); // @output 5676345
+
+    g = 9D;
+    io:println(g); // @output 9
+
+    g = 56763457D;
+    io:println(g); // @output 56763457
+
+    g = 0.0;
+    io:println(g); // @output 0
+
+    g = 0.00;
+    io:println(g); // @output 0
+
+    g = 0.234;
+    io:println(g); // @output 0.234
+
+    g = 9.0;
+    io:println(g); // @output 9.0
+
+    g = 9.5;
+    io:println(g); // @output 9.5
+
+    g = 7.406;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8;
+    io:println(g); // @output 23676734.8
+
+    g = 763756557571627.87467676867368;
+    io:println(g); // @output 763756557571627.87467676867368
+
+    g = 0.0000000087467676867368;
+    io:println(g); // @output 8.7467676867368E-9
+
+    g = .0;
+    io:println(g); // @output 0
+
+    g = .0000;
+    io:println(g); // @output 0
+
+    g = .267848989;
+    io:println(g); // @output 0.267848989
+
+    g = .267848989787698567544322445678990;
+    io:println(g); // @output 0.267848989787698567544322445678990
+
+    g = .0000000087467676867368;
+    io:println(g); // @output 8.7467676867368E-9
+
+    g = .0000000087467676867368787675750039;
+    io:println(g); // @output 8.7467676867368787675750039E-9
+
+    g = 7.4067877356452635432d;
+    io:println(g); // @output 7.4067877356452635432
+
+    g = 23676734.8D;
+    io:println(g); // @output 23676734.8
+
+    g = .0000d;
+    io:println(g); // @output 0
+
+    g = .00267848989D;
+    io:println(g); // @output 0.00267848989
+
+    g = .000267848989D;
+    io:println(g); // @output 0.000267848989
+
+    g = 7.406e+0;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8E-0;
+    io:println(g); // @output 23676734.8
+
+    g = .3564E+0;
+    io:println(g); // @output 0.3564
+
+    g = .267848989e-0;
+    io:println(g); // @output 0.267848989
+
+    g = .0000E+12;
+    io:println(g); // @output 0
+
+    g = 7.406e+201;
+    io:println(g); // @output 7.406E+201
+
+    g = 23676734.8E-21;
+    io:println(g); // @output 2.36767348E-14
+
+    g = .3564E+12;
+    io:println(g); // @output 3.564E+11
+
+    g = .267848989e-124;
+    io:println(g); // @output 2.67848989E-125
+
+    g = 7.406e+0d;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8E-0D;
+    io:println(g); // @output 23676734.8
+
+    g = .00001E+123d;
+    io:println(g); // @output 1E+118
+
+    g = .267848989e-14D;
+    io:println(g); // @output 2.67848989E-15
+
+    g = 0E+0;
+    io:println(g); // @output 0
+
+    g = 0e-0;
+    io:println(g); // @output 0
+
+    g = 7e+56;
+    io:println(g); // @output 7E+56
+
+    g = 7e-56;
+    io:println(g); // @output 7E-56
+
+    g = 785E+207;
+    io:println(g); // @output 7.85E+209
+
+    g = 785E-207;
+    io:println(g); // @output 7.85E-205
+
+    g = 7e+56d;
+    io:println(g); // @output 7E+56
+
+    g = 7e-56D;
+    io:println(g); // @output 7E-56
+
+    g = 785E+207D;
+    io:println(g); // @output 7.85E+209
+
+    g = 785E-207d;
+    io:println(g); // @output 7.85E-205        
+}
+
+Test-Case: output
+Description: Test decimal floating point number with floating point type descriptor.
+Labels: float, decimal, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+
+    decimal|float g = 0;
+    io:println(g); // @output 0.0
+
+    g = 9;
+    io:println(g); // @output 9.0
+
+    g = 5676345;
+    io:println(g); // @output 5676345.0
+
+    g = 56763457;
+    io:println(g); // @output 5.6763457E7
+
+    g = 0d;
+    io:println(g); // @output 0
+
+    g = 0f;
+    io:println(g); // @output 0.0
+  
+    g = 5676345d;
+    io:println(g); // @output 5676345
+
+    g = 5676345f;
+    io:println(g); // @output 5676345.0
+
+    g = 9D;
+    io:println(g); // @output 9
+
+    g = 9F;
+    io:println(g); // @output 9.0
+
+    g = 56763457D;
+    io:println(g); // @output 56763457
+
+    g = 56763457F;
+    io:println(g); // @output 5.6763457E7
+
+    g = 0.0;
+    io:println(g); // @output 0.0
+
+    g = 0.00;
+    io:println(g); // @output 0.0
+
+    g = 0.234;
+    io:println(g); // @output 0.234
+
+    g = 9.0;
+    io:println(g); // @output 9.0
+
+    g = 9.5;
+    io:println(g); // @output 9.5
+
+    g = 7.406;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8;
+    io:println(g); // @output 2.36767348E7
+
+    g = 763756557571627.87467676867368;
+    io:println(g); // @output 7.637565575716279E14
+
+    g = 0.0000000087467676867368;
+    io:println(g); // @output 8.7467676867368E-9
+
+    g = .0;
+    io:println(g); // @output 0.0
+
+    g = .0000;
+    io:println(g); // @output 0.0
+
+    g = .267848989;
+    io:println(g); // @output 0.267848989
+
+    g = .267848989787698567544322445678990;
+    io:println(g); // @output 0.26784898978769855
+
+    g = .0000000087467676867368;
+    io:println(g); // @output 8.7467676867368E-9
+
+    g = .0000000087467676867368787675750039;
+    io:println(g); // @output 8.74676768673688E-9
+
+    g = 7.4067877356452635432d;
+    io:println(g); // @output 7.4067877356452635432
+
+    g = 7.4067877356452635432f;
+    io:println(g); // @output 7.406787735645263
+
+    g = 23676734.8D;
+    io:println(g); // @output 23676734.8
+
+    g = 23676734.8F;
+    io:println(g); // @output 2.36767348E7
+
+    g = .0000d;
+    io:println(g); // @output 0
+
+    g = .0000f;
+    io:println(g); // @output 0.0
+
+    g = .00267848989D;
+    io:println(g); // @output 0.00267848989
+
+    g = .00267848989F;
+    io:println(g); // @output 0.00267848989
+
+    g = .000267848989D;
+    io:println(g); // @output 0.000267848989
+
+    g = .000267848989F;
+    io:println(g); // @output 2.67848989E-4
+
+    g = 7.406e+0;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8E-0;
+    io:println(g); // @output 2.36767348E7
+
+    g = .3564E+0;
+    io:println(g); // @output 0.3564
+
+    g = .267848989e-0;
+    io:println(g); // @output 0.267848989
+
+    g = .0000E+12;
+    io:println(g); // @output 0.0
+
+    g = 7.406e+201;
+    io:println(g); // @output 7.406E201
+
+    g = 23676734.8E-21;
+    io:println(g); // @output 2.36767348E-14
+
+    g = .3564E+12;
+    io:println(g); // @output 3.564E11
+
+    g = .267848989e-124;
+    io:println(g); // @output 2.67848989E-125
+
+    g = 7.406e+0d;
+    io:println(g); // @output 7.406
+
+    g = 7.406e+0f;
+    io:println(g); // @output 7.406
+
+    g = 23676734.8E-0D;
+    io:println(g); // @output 23676734.8
+
+    g = 23676734.8E-0F;
+    io:println(g); // @output 2.36767348E7
+
+    g = .00001E+123d;
+    io:println(g); // @output 1E+118
+
+    g = .00001E+123f;
+    io:println(g); // @output 1.0E118
+
+    g = .267848989e-14D;
+    io:println(g); // @output 2.67848989E-15
+
+    g = .267848989e-14F;
+    io:println(g); // @output 2.67848989E-15
+
+    g = 0E+0;
+    io:println(g); // @output 0.0
+
+    g = 0e-0;
+    io:println(g); // @output 0.0
+
+    g = 7e+56;
+    io:println(g); // @output 7.0E56
+
+    g = 7e-56;
+    io:println(g); // @output 7.0E-56
+
+    g = 785E+207;
+    io:println(g); // @output 7.85E209
+
+    g = 785E-207;
+    io:println(g); // @output 7.85E-205
+
+    g = 7e+56d;
+    io:println(g); // @output 7E+56
+
+    g = 7e+56f;
+    io:println(g); // @output 7.0E56
+
+    g = 7e-56D;
+    io:println(g); // @output 7E-56
+
+    g = 7e-56F;
+    io:println(g); // @output 7.0E-56
+
+    g = 785E+207D;
+    io:println(g); // @output 7.85E+209
+
+    g = 785E+207F;
+    io:println(g); // @output 7.85E209
+
+    g = 785E-207d;
+    io:println(g); // @output 7.85E-205
+
+    g = 785E-207f;
+    io:println(g); // @output 7.85E-205
+}
+
+Test-Case: output
+Description: Test hex floating point literal with floating point type descriptor.
+Labels: float, decimal, HexFloatingPointLiteral
+
+public function main() {
+    
+    float|decimal c = 0x0;
+    io:println(c); // @output 0.0
+
+    c = 0X9;
+    io:println(c); // @output 9.0
+
+    c = 0X2409;
+    io:println(c); // @output 9225.0
+
+    c = 0X240af;
+    io:println(c); // @output 147631.0
+
+    c = 0X240AF;
+    io:println(c); // @output 147631.0
+
+    c = 0x240aDfBcEe;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep+4;
+    io:println(c); // @output 2.47682012336E12
+
+    c = 0x240aDfBcEeP-4;
+    io:println(c); // @output 9.675078606875E9
+
+    c = 0x240aDfBcEep-0;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEeP+0;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep-324;
+    io:println(c); // @output 4.529558674359502E-87
+
+    c = 0x240aDfBcEeP+205;
+    io:println(c); // @output 7.960192970026859E72
+
+    c = 0X0.0;
+    io:println(c); // @output 0.0
+
+    c = 0X9.9;
+    io:println(c); // @output 9.5625
+
+    c = 0X206.50743;
+    io:println(c); // @output 518.3142728805542
+
+    c = 0Xa.a;
+    io:println(c); // @output 10.625
+
+    c = 0XA.A;
+    io:println(c); // @output 10.625
+
+    c = 0XA.a;
+    io:println(c); // @output 10.625
+
+    c = 0Xa.A;
+    io:println(c); // @output 10.625
+
+    c = 0XaEbcD.EaD;
+    io:println(c); // @output 715725.9172363281
+
+    c = 0XaE04bcD.E91aD;
+    io:println(c); // @output 1.8247162991056538E8
+
+    c = 0X.0;
+    io:println(c); // @output 0.0
+
+    c = 0X.1;
+    io:println(c); // @output 0.0625
+
+    c = 0X.2345;
+    io:println(c); // @output 0.1377716064453125
+
+    c = 0X.A;
+    io:println(c); // @output 0.625
+
+    c = 0X.a;
+    io:println(c); // @output 0.625
+
+    c = 0x.aBdECFF;
+    io:println(c); // @output 0.671368595212698
+
+    c = 0x.aBd0E12C9FF4;
+    io:println(c); // @output 0.6711559995600993
+
+    c = 0X.2p+0;
+    io:println(c); // @output 0.125
+
+    c = 0X.AP-0;
+    io:println(c); // @output 0.625
+
+    c = 0X.ap-0;
+    io:println(c); // @output 0.625
+
+    c = 0x.263567p+46;
+    io:println(c); // @output 1.0502700793856E13
+
+    c = 0X.AEDP-46;
+    io:println(c); // @output 9.704043124614259E-15
+
+    c = 0X.aedp-46;
+    io:println(c); // @output 9.704043124614259E-15
+
+    c = 0x.1BeAP+948;
+    io:println(c); // @output 2.594292682612851E284
+
+    c = 0X.EfCap-456;
+    io:println(c); // @output 5.033978793202067E-138
+
+    c = 0x0.0p-0;
+    io:println(c); // @output 0.0
+
+    c = 0x0.0P+0;
+    io:println(c); // @output 0.0
+
+    c = 0x9.4p-1;
+    io:println(c); // @output 4.625
+
+    c = 0x9546.4748p+126;
+    io:println(c); // @output 3.250911279637454E42
+
+    c = 0xa.aP-1;
+    io:println(c); // @output 5.3125
+
+    c = 0Xa.ap+1;
+    io:println(c); // @output 21.25
+
+    c = 0xA.aP-12;
+    io:println(c); // @output 0.002593994140625
+
+    c = 0XA.ap+12;
+    io:println(c); // @output 43520.0
+
+    c = 0xaeb.acdfP-302;
+    io:println(c); // @output 3.431057809225094E-88
+
+    c = 0xABC.CEEFFp+302;
+    io:println(c); // @output 2.2397685993041007E94
+
+    c = 0xAbC.eEfFp-453;
+    io:println(c); // @output 1.1818876933270403E-133
+
+    c = 0xAb12C.e9E1f0FP+45;
+    io:println(c); // @output 2.46542846171754E19
+}
+
+Test-Case: output
+Description: Test hex indicator with float and floating point type descriptors.
+Fail-Issue: ballerina-lang #32750
+Labels: float, HexFloatingPointLiteral
+
+public function main() {
+    float b = 0x;
+    io:println(a);
+
+    float b = 0X;
+    io:println(a);   
+
+    float|decimal c = 0x;
+    io:println(c);
+
+    c = 0X;
+    io:println(c);   
+}
+
+Test-Case: output
+Description: Test hex indicator with float type descriptor.
+Fail-Issue: ballerina-lang #32817
+Labels: float, HexFloatingPointLiteral
+
+public function main() {
+    float d = 0xFFFFFFFFFFFFFFFF;
+    io:println(d);
+
+    d = 0xabc435de769FEAB0;
+    io:println(d);
+
+    d = 0xaaaaaaaaaaaaaaa0;
+    io:println(d);
+
+    d = 0xAAAAAAAAAAAAAAA0;
+    io:println(d);
+}
+
+Test-Case: output
+Description: Test hex floating point literal with float type descriptor.
+Labels: float, HexFloatingPointLiteral
+
+public function main() {
+    
+    float c = 0x0;
+    io:println(c); // @output 0.0
+
+    c = 0X9;
+    io:println(c); // @output 9.0
+
+    c = 0X2409;
+    io:println(c); // @output 9225.0
+
+    c = 0X240af;
+    io:println(c); // @output 147631.0
+
+    c = 0X240AF;
+    io:println(c); // @output 147631.0
+
+    c = 0x240aDfBcEe;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep+4;
+    io:println(c); // @output 2.47682012336E12
+
+    c = 0x240aDfBcEeP-4;
+    io:println(c); // @output 9.675078606875E9
+
+    c = 0x240aDfBcEep-0;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEeP+0;
+    io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep-324;
+    io:println(c); // @output 4.529558674359502E-87
+
+    c = 0x240aDfBcEeP+205;
+    io:println(c); // @output 7.960192970026859E72
+
+    c = 0X0.0;
+    io:println(c); // @output 0.0
+
+    c = 0X9.9;
+    io:println(c); // @output 9.5625
+
+    c = 0X206.50743;
+    io:println(c); // @output 518.3142728805542
+
+    c = 0Xa.a;
+    io:println(c); // @output 10.625
+
+    c = 0XA.A;
+    io:println(c); // @output 10.625
+
+    c = 0XA.a;
+    io:println(c); // @output 10.625
+
+    c = 0Xa.A;
+    io:println(c); // @output 10.625
+
+    c = 0XaEbcD.EaD;
+    io:println(c); // @output 715725.9172363281
+
+    c = 0XaE04bcD.E91aD;
+    io:println(c); // @output 1.8247162991056538E8
+
+    c = 0X.0;
+    io:println(c); // @output 0.0
+
+    c = 0X.1;
+    io:println(c); // @output 0.0625
+
+    c = 0X.2345;
+    io:println(c); // @output 0.1377716064453125
+
+    c = 0X.A;
+    io:println(c); // @output 0.625
+
+    c = 0X.a;
+    io:println(c); // @output 0.625
+
+    c = 0x.aBdECFF;
+    io:println(c); // @output 0.671368595212698
+
+    c = 0x.aBd0E12C9FF4;
+    io:println(c); // @output 0.6711559995600993
+
+    c = 0X.2p+0;
+    io:println(c); // @output 0.125
+
+    c = 0X.AP-0;
+    io:println(c); // @output 0.625
+
+    c = 0X.ap-0;
+    io:println(c); // @output 0.625
+
+    c = 0x.263567p+46;
+    io:println(c); // @output 1.0502700793856E13
+
+    c = 0X.AEDP-46;
+    io:println(c); // @output 9.704043124614259E-15
+
+    c = 0X.aedp-46;
+    io:println(c); // @output 9.704043124614259E-15
+
+    c = 0x.1BeAP+948;
+    io:println(c); // @output 2.594292682612851E284
+
+    c = 0X.EfCap-456;
+    io:println(c); // @output 5.033978793202067E-138
+
+    c = 0x0.0p-0;
+    io:println(c); // @output 0.0
+
+    c = 0x0.0P+0;
+    io:println(c); // @output 0.0
+
+    c = 0x9.4p-1;
+    io:println(c); // @output 4.625
+
+    c = 0x9546.4748p+126;
+    io:println(c); // @output 3.250911279637454E42
+
+    c = 0xa.aP-1;
+    io:println(c); // @output 5.3125
+
+    c = 0Xa.ap+1;
+    io:println(c); // @output 21.25
+
+    c = 0xA.aP-12;
+    io:println(c); // @output 0.002593994140625
+
+    c = 0XA.ap+12;
+    io:println(c); // @output 43520.0
+
+    c = 0xaeb.acdfP-302;
+    io:println(c); // @output 3.431057809225094E-88
+
+    c = 0xABC.CEEFFp+302;
+    io:println(c); // @output 2.2397685993041007E94
+
+    c = 0xAbC.eEfFp-453;
+    io:println(c); // @output 1.1818876933270403E-133
+
+    c = 0xAb12C.e9E1f0FP+45;
+    io:println(c); // @output 2.46542846171754E19
+}
+
+Test-Case: output
+Description: Test floating point literal max and min with float type descriptor.
+Labels: float, HexFloatingPointLiteral
+
+public function main() {
+    
+    float d = 1.7976931348623157E+308;
+    io:println(d); // @output 1.7976931348623157E308
+
+    d = 1.7976931348623157E+309;
+    io:println(d); // @output Infinity
+
+    d = 4.94065645841246544E-324;
+    // io:println(d); // @output 4.9E-324
+
+    d = 4.94065645841246544E-325;
+    io:println(d); // @output 0.0
+
+    d = 0x1.fffffffffffffp+1023;
+    io:println(d); // @output 1.7976931348623157E308 
+
+    d = 0x1.fffffffffffffp+1024;
+    io:println(d); // @output Infinity 
+
+    d = 0x1.ffffffffffffffp+1023;
+    io:println(d); // @output Infinity 
+
+    d = 0x1.ffffffffffffffp+1024;
+    io:println(d); // @output Infinity 
+
+    d = 0x1p-1074;
+    io:println(d); // @output 4.9E-324 
+
+    d = 0x1p-1075;
+    io:println(d); // @output 0.0 
+
+    d = 0x0p-1074;
+    io:println(d); // @output 0.0 
+
+    d = 0x0p-1075;
+    io:println(d); // @output 0.0 
+}
+
+Test-Case: output
+Description: Test floating point literal max and min with decimal type descriptor.
+Labels: decimal 
+
+public function main() {
+    decimal e = 1E-6176;
+    io:println(e); // @output 1E-6176
+
+    e = 9.99E+6111;
+    io:println(e); // @output 9.99E+6111
+}
+
+Test-Case: output
+Description: Test floating point literal max and min with floating point type descriptor.
+Labels: decimal, float, HexFloatingPointLiteral, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    float|decimal f = 1.7976931348623157E+308;
+    io:println(f); // @output 1.7976931348623157E308
+
+    f = 1.7976931348623157E+308F;
+    io:println(f); // @output 1.7976931348623157E308
+
+    f = 1.7976931348623157E+309;
+    io:println(f); // @output Infinity
+
+    f = 1.7976931348623157E+309f;
+    io:println(f); // @output Infinity
+
+    f = 4.94065645841246544E-324;
+    io:println(f); // @output 4.9E-324
+
+    f = 4.94065645841246544E-324F;
+    io:println(f); // @output 4.9E-324
+
+    f = 4.94065645841246544E-325;
+    io:println(f); // @output 0.0
+
+    f = 4.94065645841246544E-325f;
+    io:println(f); // @output 0.0
+
+    f = 0x1.fffffffffffffp+1023;
+    io:println(f); // @output 1.7976931348623157E308 
+
+    f = 0x1.fffffffffffffp+1024;
+    io:println(f); // @output Infinity 
+
+    f = 0x1.ffffffffffffffp+1023;
+    io:println(f); // @output Infinity 
+
+    f = 0x1.ffffffffffffffp+1024;
+    io:println(f); // @output Infinity 
+
+    f = 0x1p-1074;
+    io:println(f); // @output 4.9E-324 
+
+    f = 0x1p-1075;
+    io:println(f); // @output 0.0 
+
+    f = 0x0p-1074;
+    io:println(f); // @output 0.0 
+
+    f = 0x0p-1075;
+    io:println(f); // @output 0.0 
+
+    f = 1E-6176;
+    io:println(f); // @output 0.0
+
+    f = 9.99E+6111;
+    io:println(f); // @output Infinity
+
+    f = 1E-6176d;
+    io:println(f); // @output 1E-6176
+
+    f = 9.99E+6111D;
+    io:println(f); // @output 9.99E+6111
+}
