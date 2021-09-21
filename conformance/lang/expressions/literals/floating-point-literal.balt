@@ -155,6 +155,24 @@ public function main() {
 
     a = 785E-207f;
     io:println(a); // @output 7.85E-205
+
+        a = 25e174;
+    io:println(a); // @output 2.5E175 
+
+    a = 25E174;
+    io:println(a); // @output 2.5E175 
+    
+    a = 25e174f;
+    io:println(a); // @output 2.5E175 
+    
+    a = 25e174F;
+    io:println(a); // @output 2.5E175 
+
+    a = 25E174f;
+    io:println(a); // @output 2.5E175
+
+    a = 25E174F;
+    io:println(a); // @output 2.5E175
 }
 
 Test-Case: output
@@ -313,7 +331,25 @@ public function main() {
     io:println(g); // @output 7.85E+209
 
     g = 785E-207d;
-    io:println(g); // @output 7.85E-205        
+    io:println(g); // @output 7.85E-205
+
+    g = 25e1742d;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25e1742D;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25E1742d;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25E1742D;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25e174;
+    io:println(g); // @output 2.5E+175
+
+    g = 25E174;
+    io:println(g); // @output 2.5E+175        
 }
 
 Test-Case: output
@@ -525,6 +561,36 @@ public function main() {
 
     g = 785E-207f;
     io:println(g); // @output 7.85E-205
+
+    g = 25e1742d;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25e1742D;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25E1742d;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25E1742D;
+    io:println(g); // @output 2.5E+1743
+
+    g = 25e174;
+    io:println(g); // @output 2.5E175
+
+    g = 25E174;
+    io:println(g); // @output 2.5E175 
+
+    g = 25e174f;
+    io:println(g); // @output 2.5E175 
+    
+    g = 25e174F;
+    io:println(g); // @output 2.5E175 
+
+    g = 25E174f;
+    io:println(g); // @output 2.5E175
+
+    g = 25E174F;
+    io:println(g); // @output 2.5E175
 }
 
 Test-Case: output
@@ -550,6 +616,12 @@ public function main() {
 
     c = 0x240aDfBcEe;
     io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep4;
+    io:println(c); // @output 2.47682012336E12
+
+    c = 0x240aDfBcEeP4;
+    io:println(c); // @output 2.47682012336E12
 
     c = 0x240aDfBcEep+4;
     io:println(c); // @output 2.47682012336E12
@@ -739,6 +811,12 @@ public function main() {
 
     c = 0x240aDfBcEe;
     io:println(c); // @output 1.5480125771E11
+
+    c = 0x240aDfBcEep4;
+    io:println(c); // @output 2.47682012336E12
+
+    c = 0x240aDfBcEeP4;
+    io:println(c); // @output 2.47682012336E12
 
     c = 0x240aDfBcEep+4;
     io:println(c); // @output 2.47682012336E12
@@ -987,3 +1065,216 @@ public function main() {
     f = 9.99E+6111D;
     io:println(f); // @output 9.99E+6111
 }
+
+Test-Case: error
+Description: Test decimal floating point numbers with leading zeros
+Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    float|decimal a = 00; // @error invalid floating point with leading '0'
+
+    a = 012; // @error invalid floating point with leading '0'
+
+    a = 03f; // @error invalid floating point with leading '0'
+
+    a = 03F; // @error invalid floating point with leading '0'
+
+    a = 03d; // @error invalid floating point with leading '0'
+
+    a = 03D; // @error invalid floating point with leading '0'
+
+    a = 00E52f; // @error invalid floating point with leading '0'
+
+    a = 00E52F; // @error invalid floating point with leading '0'
+
+    a = 00E52D; // @error invalid floating point with leading '0'
+
+    a = 00E52d; // @error invalid floating point with leading '0'
+
+    a = 00e52f; // @error invalid floating point with leading '0'
+
+    a = 00e52F; // @error invalid floating point with leading '0'
+
+    a = 00e52D; // @error invalid floating point with leading '0'
+
+    a = 00e52d; // @error invalid floating point with leading '0'
+
+    a = 00e+4; // @error invalid floating point with leading '0'
+
+    a = 00E-5f; // @error invalid floating point with leading '0'
+
+    a = 00e+5D; // @error invalid floating point with leading '0'
+
+    a = 00E+5F; // @error invalid floating point with leading '0'
+
+    a = 00e-5d; // @error invalid floating point with leading '0'
+
+    a = 00.4; // @error invalid floating point with leading '0'
+
+    a = 00.005E-9; // @error invalid floating point with leading '0'
+
+    a = 00.005e+9; // @error invalid floating point with leading '0'
+
+    a = 00.005e+9F; // @error invalid floating point with leading '0'
+
+    a = 00.005e+9f; // @error invalid floating point with leading '0'
+
+    a = 00.005e-9F; // @error invalid floating point with leading '0'
+
+    a = 00.005e-9f; // @error invalid floating point with leading '0'
+
+    a = 00.005E-9d; // @error invalid floating point with leading '0'
+
+    a = 00.005E-9D; // @error invalid floating point with leading '0'
+
+    a = 00.005E+9d; // @error invalid floating point with leading '0'
+
+    a = 00.005E+9D; // @error invalid floating point with leading '0'      
+}
+
+Test-Case: parser-error
+Description: Test invalid decimal floating point numbers.
+Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    
+    float|decimal a = 25h174; // @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    
+    a = 25e 174; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25 e174; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25E_174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+
+    a = 25E++174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+
+    a = 25E--174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+
+    a = 25E+-174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+
+    a = 25E+ABC; // @parser-error invalid DecimalFloatingPointNumber due to missing digits after the sign in Exponent
+
+    a = 25E +174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25e+ 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25E-ABC; // @parser-error invalid DecimalFloatingPointNumber due to invalid characters after the sign in Exponent
+
+    a = 25E -174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25e- 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    
+    a = 25E-174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25E+174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25E174s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = .25s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25.s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25.23s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = .25E-174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25.E+174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25.67E174s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+
+    a = 25E+174 f; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25E+174 F; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25E+174 d; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25E+174 D; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25,; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+
+    a = ,25; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+
+    a = 235,55; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+
+    a = 235. 55; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 235 .55; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25 .;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = . 99;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = . 99;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25. e174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25.E 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25 .E174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 25.B174; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+
+    a = 243.32B174; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+
+    a = 243.32e 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 243.32 e1742; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+
+    a = 245.32 E 1742; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary spaces
+
+    a = .99eabc; // @parser-error invalid DecimalFloatingPointNumber due to invalid characters after the ExponentIndicator in Exponent
+
+    a = 25.B+1742; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+
+    a = 25.BCF+1742; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+
+    a = 25.TYU+GFH; // @parser-error invalid DecimalFloatingPointNumber due to invalid Exponent
+
+    a = 25.TYUGFH; // @parser-error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
+
+    a = TYUGFH.23; // @parser-error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
+
+    a = TYUGFH.; // @parser-error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
+    
+    a = .TYUGFH; // @parser-error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
+    
+    a = 25..23; // @parser-error invalid DecimalFloatingPointNumber due to multiple decimal point symbols 
+
+    a = 25.E+ty; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+
+    a = 25.Ety;  // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+
+    a = 25.BC2F+1742; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+
+    a = 25.BC2F+17VF42; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+
+    a = 25.BC2?F+17VF?42; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+
+    a = 25.67p+20; // @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+}
+
+Test-Case: error
+Description: Test invalid decimal floating point numbers.
+Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    a = .99+1742; // @error invalid DecimalFloatingPointNumber due to missing ExponentIndicator
+    a = e+174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
+    a = e174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
+}
+
+Test-Case: parser-error
+Description:  Test invalid decimal floating point numbers.
+Fail-Issue: ballerina-lang #32839
+Labels: decimal, float
+
+public function main() {
+    float|decimal a = 25.E;1742;
+    a = 25.E=1742;
+    a = 25.E:1742;
+    a = 25.E,1742;
+    a = .99E-;
+    a = .99E+;
+    a = .99E;
+}
+
