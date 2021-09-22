@@ -173,6 +173,51 @@ public function main() {
 
     a = 25E174F;
     io:println(a); // @output 2.5E175
+
+    a = 25.;
+    io:println(a); // @output 25.0
+
+    a = 25.e174;
+    io:println(a); // @output 2.5E175
+
+    a = 25.E174;
+    io:println(a); // @output 2.5E175
+
+    a = 25.e+174;
+    io:println(a); // @output 2.5E175
+
+    a = 25.E-174;
+    io:println(a); // @output 2.5E-173
+
+    a = 25.f;
+    io:println(a); // @output 25.0
+
+    a = 25.F;
+    io:println(a); // @output 25.0
+
+    a = 25.e174f;
+    io:println(a); // @output 2.5E175
+
+    a = 25.e174F;
+    io:println(a); // @output 2.5E175
+
+    a = 25.E174f;
+    io:println(a); // @output 2.5E175
+
+    a = 25.E174F;
+    io:println(a); // @output 2.5E175
+
+    a = 25.e+174f;
+    io:println(a); // @output 2.5E175
+
+    a = 25.e-174F;
+    io:println(a); // @output 2.5E-173
+
+    a = 25.E+174f;
+    io:println(a); // @output 2.5E175
+
+    a = 25.E-174F;
+    io:println(a); // @output 2.5E-173
 }
 
 Test-Case: output
@@ -350,6 +395,51 @@ public function main() {
 
     g = 25E174;
     io:println(g); // @output 2.5E+175        
+
+    g = 25.d;
+    io:println(g); // @output 25
+
+    g = 25.D;
+    io:println(g); // @output 25
+
+    g = 25.e174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e174D;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E174D;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e+174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e-174D;
+    io:println(g); // @output 2.5E-173
+
+    g = 25.E+174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E-174D;
+    io:println(g); // @output 2.5E-173
+
+    g = 25.;
+    io:println(g); // @output 25
+
+    g = 25.e174;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E174;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e+174;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E-174;
+    io:println(g); // @output 2.5E-173
 }
 
 Test-Case: output
@@ -591,6 +681,81 @@ public function main() {
 
     g = 25E174F;
     io:println(g); // @output 2.5E175
+
+    g = 25.d;
+    io:println(g); // @output 25
+
+    g = 25.D;
+    io:println(g); // @output 25
+
+    g = 25.e174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e174D;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E174D;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e+174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.e-174D;
+    io:println(g); // @output 2.5E-173
+
+    g = 25.E+174d;
+    io:println(g); // @output 2.5E+175
+
+    g = 25.E-174D;
+    io:println(g); // @output 2.5E-173
+
+    g = 25.;
+    io:println(g); // @output 25.0
+
+    g = 25.e174;
+    io:println(g); // @output 2.5E175
+
+    g = 25.E174;
+    io:println(g); // @output 2.5E175
+
+    g = 25.e+174;
+    io:println(g); // @output 2.5E175
+
+    g = 25.E-174;
+    io:println(g); // @output 2.5E-173
+    
+    g = 25.f;
+    io:println(g); // @output 25.0
+
+    g = 25.F;
+    io:println(g); // @output 25.0
+
+    g = 25.e174f;
+    io:println(g); // @output 2.5E175
+
+    g = 25.e174F;
+    io:println(g); // @output 2.5E175
+
+    g = 25.E174f;
+    io:println(g); // @output 2.5E175
+
+    g = 25.E174F;
+    io:println(g); // @output 2.5E175
+
+    g = 25.e+174f;
+    io:println(g); // @output 2.5E175
+
+    g = 25.e-174F;
+    io:println(g); // @output 2.5E-173
+
+    g = 25.E+174f;
+    io:println(g); // @output 2.5E175
+
+    g = 25.E-174F;
+    io:println(g); // @output 2.5E-173
 }
 
 Test-Case: output
@@ -748,25 +913,27 @@ public function main() {
 
     c = 0xAb12C.e9E1f0FP+45;
     io:println(c); // @output 2.46542846171754E19
-}
 
-Test-Case: output
-Description: Test hex indicator with float and floating point type descriptors.
-Fail-Issue: ballerina-lang #32750
-Labels: float, HexFloatingPointLiteral
+    c = 0x3e3.; 
+    io:println(c); // @output 995.0
 
-public function main() {
-    float b = 0x;
-    io:println(a);
+    c = 0x3e3.p23; 
+    io:println(c); // @output 8.34666496E9
 
-    float b = 0X;
-    io:println(a);   
+    c = 0x3e3.P23;
+    io:println(c); // @output 8.34666496E9
 
-    float|decimal c = 0x;
-    io:println(c);
+    c = 0x3e3.p+23;
+    io:println(c); // @output 8.34666496E9
 
-    c = 0X;
-    io:println(c);   
+    c = 0x3e3.p-23; 
+    io:println(c); // @output 1.1861324310302734E-4
+
+    c = 0x3e3.P+23;
+    io:println(c); // @output 8.34666496E9
+
+    c = 0x3e3.P-23;
+    io:println(c); // @output 1.1861324310302734E-4
 }
 
 Test-Case: output
@@ -1255,10 +1422,10 @@ public function main() {
 
 Test-Case: error
 Description: Test invalid decimal floating point numbers.
-Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
+Labels: decimal, float
 
 public function main() {
-    a = .99+1742; // @error invalid DecimalFloatingPointNumber due to missing ExponentIndicator
+    float|decimal a = .99+1742; // @error invalid DecimalFloatingPointNumber due to missing ExponentIndicator
     a = e+174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
     a = e174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
 }
@@ -1277,4 +1444,145 @@ public function main() {
     a = .99E+;
     a = .99E;
 }
+
+Test-Case: parser-error
+Description: Test invalid hex floating point literal
+Labels: decimal, float, HexFloatingPointLiteral
+
+public function main() {
+    float|decimal a = 3eA3p34; // @parser-error invalid HexFloatingPointLiteral due to missing HexIndicator
+
+    a = 345eA; // @parser-error invalid HexFloatingPointLiteral due to missing HexIndicator
+
+    a = 0x3 eA3p34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0X3eA3 p34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0X3eA3p 34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0X3eA3E34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponentIndicator
+
+    a = 0X3eA3pAf; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0aBV6p34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexNumber
+
+    a = 0XVVzp34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexNumber
+
+    a = 0X3eApVB; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3eA3p++34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3eA3p+3dS4; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3eA3p--34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3eA3p-+34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3eA3p.34; // @parser-error invalid HexFloatingPointLiteral due to invalid sign in HexExponent
+
+    a = 0x3eA3p+ 34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+   
+    a = 0x3eA3p+34f; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+
+    a = 0x3eA3p+34F; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+
+    a = 0x3eA3p+34D; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+
+    a = 0x3eA3p+34d; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+
+    a = 0x3eA3H-34; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 8x3eA3p67; // @parser-error invalid HexFloatingPointLiteral due to invalid HexIndicator
+
+    a = 0Z3eA3p67; // @parser-error invalid HexFloatingPointLiteral due to invalid HexIndicator
+    
+    a = 0x3eA3 .4Eb2; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0x3eA3. 4Eb2; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0x3eZ3.4Eb2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+
+    a = 0x3e3.4EbZ2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+
+    a = 0x3e3z.4EbZ2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+    
+    a = 0x3e3.4Eb2p45Z; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+
+    a = 0x3e3..4Eb2p45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x3e3=4Eb2p45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = .0x3e3; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x3e3 .p23; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0x3e3. p23; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 3eA3.4Eb2p0x+45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x3eA3.4Eb2pA+45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x..4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x4E,b2P-45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x4E:b2P-45; // @parser-error invalid HexFloatingPointLiteral
+
+    a = 0x. 4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+
+    a = 0x .4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+}
+
+Test-Case: error
+Description: Test invalid hex floating point literal
+Labels: decimal, float, HexFloatingPointLiteral
+
+public function main() {
+    float|decimal a = .99+1742; // @error invalid DecimalFloatingPointNumber due to missing ExponentIndicator
+    a = e+174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
+    a = e174; // @error invalid DecimalFloatingPointNumber due to the absence of DecimalNumber or DottedDecimalNumber
+}
+
+Test-Case: error
+Description: Test invalid hex floating point literal
+Fail-Issue: ballerina-lang #32750 #32840
+Labels: decimal, float, HexFloatingPointLiteral
+
+public function main() {
+    float|decimal a = 0x 3eA3p34;
+    a = 0x;
+    a = 0X;
+    a = 0Xp34;
+    a = 0x3eA3p-;
+    a = 0x3eA3p+;
+    a = 0x3eA3p;
+    a = 0x 3eA3 .4Eb2 p45;
+    a = 0x 3eA3.4Eb2p+45;
+    a = 0X3eAp;
+    a = 0x3eA3p=34;
+    a = 0x3eA3p:34;
+    a = 0x3eA3p,34;
+    a = 0x=4Eb2P-45;
+    a = 0x:4Eb2P-45;
+    a = 0x,4Eb2P-45;
+}
+
+Test-Case: error
+Description: Test hex floating point literal with decimal type descriptor. 
+Labels: decimal, HexFloatingPointLiteral
+
+public function main() {
+    decimal a = 0x3eA3p34; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x3eA3p+34; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0X3eA3P-34; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x3eA3.4Eb2; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x.4Eb2; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x4Eb2.; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x3eA3.4Eb2p45; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x.4Eb2p45; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x3eA3.4Eb2p+45; // @error HexFloatingPointLiteral cannot be assigned to decimal
+    a = 0x.4Eb2p-45; // @error HexFloatingPointLiteral cannot be assigned to decimal
+}
+
+
 
