@@ -3435,8 +3435,1107 @@ public function main() {
     io:println(+0 != -0); // @output false
 }
 
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to integer type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+  
+    io:println(<int> 25e8); // @output 2500000000
+
+    io:println(<int> 25E8); // @output 2500000000
 
 
+    io:println(<int> 25e+8); // @output 2500000000
+
+    io:println(<int> 25E-8); // @output 0
+
+
+    io:println(<int> 25e8f); // @output 2500000000
+
+    io:println(<int> 25e8F); // @output 2500000000
+
+    io:println(<int> 25e8d); // @output 2500000000
+
+    io:println(<int> 25e8D); // @output 2500000000
+
+    io:println(<int> 25e8f); // @output 2500000000
+
+    io:println(<int> 25e8F); // @output 2500000000
+
+    io:println(<int> 25e8d); // @output 2500000000
+
+    io:println(<int> 25e8D); // @output 2500000000
+
+   
+    io:println(<int> 25e+8f); // @output 2500000000
+
+    io:println(<int> 25e-8F); // @output 0
+
+    io:println(<int> 25e+8d); // @output 2500000000
+
+    io:println(<int> 25e-8D); // @output 0
+
+    io:println(<int> 25E+8f); // @output 2500000000
+
+    io:println(<int> 25E-8F); // @output 0
+
+    io:println(<int> 25E+8d); // @output 2500000000
+
+    io:println(<int> 25E-8D); // @output 0
+
+
+    io:println(<int> 25f); // @output 25
+
+    io:println(<int> 25F); // @output 25
+
+    io:println(<int> 25d); // @output 25
+
+    io:println(<int> 25D); // @output 25
+
+
+    io:println(<int> 25.); // @output 25
+
+    io:println(<int> 245.32); // @output 245
+
+    io:println(<int> .99); // @output 1
+
+
+
+    io:println(<int> 25.e8); // @output 2500000000
+    
+    io:println(<int> 25.E8); // @output 2500000000
+
+    io:println(<int> 243.32e8); // @output 24332000000
+
+    io:println(<int> 245.32E8); // @output 24532000000
+
+    io:println(<int> .99e8); // @output 9900000000
+
+    io:println(<int> .99E8); // @output 9900000000
+
+
+    io:println(<int> 25.e+8); // @output 2500000000
+
+    io:println(<int> 25.E-8); // @output 0
+
+    io:println(<int> 243.32e+8); // @output 24332000000
+
+    io:println(<int> 245.32E-8); // @output 0
+
+    io:println(<int> .99e+8); // @output 99000000
+
+    io:println(<int> .99E-8); // @output 0
+
+    io:println(<int> 25.f); // @output 25
+
+    io:println(<int> 25.F); // @output 25
+
+    io:println(<int> 25.d); // @output 25
+
+    io:println(<int> 25.D); // @output 25
+
+    io:println(<int> 245.32f); // @output 245
+
+    io:println(<int> 245.32F); // @output 245
+
+    io:println(<int> 245.32d); // @output 245
+
+    io:println(<int> 245.32D); // @output 245
+
+    io:println(<int> .99f); // @output 1
+
+    io:println(<int> .99F); // @output 1
+
+    io:println(<int> .99d); // @output 1
+
+    io:println(<int> .99D); // @output 1
+}
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to integer type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<int> 25.e8f); // @output 2500000000
+
+    io:println(<int> 25.e8F); // @output 2500000000
+
+    io:println(<int> 25.e8d); // @output 2500000000
+
+    io:println(<int> 25.e8D); // @output 2500000000
+
+    io:println(<int> 25.E8f); // @output 2500000000
+
+    io:println(<int> 25.E8F); // @output 2500000000
+
+    io:println(<int> 25.E8d); // @output 2500000000
+
+    io:println(<int> 25.E8D); // @output 2500000000
+
+    io:println(<int> 245.32e8f); // @output 24532000000
+
+    io:println(<int> 245.32e8F); // @output 24532000000
+
+    io:println(<int> 245.32e8d); // @output 24532000000
+
+    io:println(<int> 245.32e8D); // @output 24532000000
+
+    io:println(<int> 245.32E8F); // @output 24532000000
+
+    io:println(<int> 245.32E8d); // @output 24532000000
+
+    io:println(<int> 245.32E8D); // @output 24532000000
+
+    io:println(<int> .99e8f); // @output 99000000
+
+    io:println(<int> .99e8F); // @output 99000000
+
+    io:println(<int> .99e8d); // @output 99000000
+
+    io:println(<int> .99e8D); // @output 99000000
+    
+    io:println(<int> .99E8f); // @output 99000000
+    
+    io:println(<int> .99E8F); // @output 99000000
+    
+    io:println(<int> .99E8d); // @output 99000000
+
+    io:println(<int> .99E8D); // @output 99000000
+
+    io:println(<int> 25.e+8f); // @output 2500000000
+
+    io:println(<int> 25.e-8F); // @output 0
+
+    io:println(<int> 25.e+8d); // @output 2500000000
+
+    io:println(<int> 25.e-8D); // @output 0
+
+    io:println(<int> 25.E+8f); // @output 2500000000
+
+    io:println(<int> 25.E-8F); // @output 0
+
+    io:println(<int> 25.E+8d); // @output 2500000000
+
+    io:println(<int> 25.E-8D); // @output 0
+
+    io:println(<int> 245.32e+8f); // @output 24532000000
+
+    io:println(<int> 245.32e-8F); // @output 0
+
+    io:println(<int> 245.32e+8d); // @output 24532000000
+
+    io:println(<int> 245.32e-8D); // @output 0
+
+    io:println(<int> 245.32E+8f); // @output 24532000000
+
+    io:println(<int> 245.32E-8F); // @output 0
+
+    io:println(<int> 245.32E+8d); // @output 24532000000
+
+    io:println(<int> 245.32E-8D); // @output 0
+
+    io:println(<int> .99e+8f); // @output 99000000
+
+    io:println(<int> .99e-8F); // @output 0
+
+    io:println(<int> .99e+8d); // @output 99000000
+
+    io:println(<int> .99e-8D); // @output 0
+
+    io:println(<int> .99E+8f); // @output 99000000
+
+    io:println(<int> .99E-8F); // @output 0
+
+    io:println(<int> .99E+8d); // @output 99000000
+
+    io:println(<int> .99E-8D); // @output 0
+
+
+    io:println(<int> 25f); // @output 25
+
+    io:println(<int> 25F); // @output 25
+    
+    io:println(<int> 25d); // @output 25
+    
+    io:println(<int> 25D); // @output 25
+}
+
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to float type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<float> 25e174); // @output 2.5E175
+
+    io:println(<float> 25E174); // @output 2.5E175
+
+
+    io:println(<float> 25e+174); // @output 2.5E175
+
+    io:println(<float> 25E-174); // @output 2.5E-173
+
+
+    io:println(<float> 25e174f); // @output 2.5E175
+
+    io:println(<float> 25e174F); // @output 2.5E175
+
+    io:println(<float> 25e174d); // @output 2.5E175
+
+    io:println(<float> 25e174D); // @output 2.5E175
+
+    io:println(<float> 25e174f); // @output 2.5E175
+
+    io:println(<float> 25e174F); // @output 2.5E175
+
+    io:println(<float> 25e174d); // @output 2.5E175
+
+    io:println(<float> 25e174D); // @output 2.5E+175
+
+   
+    io:println(<float> 25e+174f); // @output 2.5E175
+
+    io:println(<float> 25e-174F); // @output 2.5E-173
+
+    io:println(<float> 25e+174d); // @output 2.5E175
+
+    io:println(<float> 25e-174D); // @output 2.5E-173
+
+    io:println(<float> 25E+174f); // @output 2.5E175
+
+    io:println(<float> 25E-174F); // @output 2.5E-173
+
+    io:println(<float> 25E+174d); // @output 2.5E175
+
+    io:println(<float> 25E-174D); // @output 2.5E-173
+
+
+    io:println(<float> 25f); // @output 25.0
+
+    io:println(<float> 25F); // @output 25.0
+
+    io:println(<float> 25d); // @output 25.0
+
+    io:println(<float> 25D); // @output 25.0
+
+
+    io:println(<float> 25.); // @output 25.0
+
+    io:println(<float> 245.32); // @output 245.32
+
+    io:println(<float> .99); // @output 0.99
+
+
+
+    io:println(<float> 25.e174); // @output 2.5E175
+    
+    io:println(<float> 25.E174); // @output 2.5E175
+
+    io:println(<float> 243.32e174); // @output 2.4332E176
+
+    io:println(<float> 245.32E174); // @output 2.4532E176
+
+    io:println(<float> 99e174); // @output 9.9E175
+
+    io:println(<float> .99E174); // @output 9.9E173
+
+
+    io:println(<float> 25.e+174); // @output 2.5E175
+
+    io:println(<float> 25.E-174); // @output 2.5E-173
+
+    io:println(<float> 243.32e+174); // @output 2.4332E176
+
+    io:println(<float> 245.32E-174); // @output 2.4532E-172
+
+    io:println(<float> .99e+174); // @output 9.9E173
+
+    io:println(<float> .99E-174); // @output 9.9E-175
+
+    io:println(<float> 25.f); // @output 25.0
+
+    io:println(<float> 25.F); // @output 25.0
+
+    io:println(<float> 25.d); // @output 25.0
+
+    io:println(<float> 25.D); // @output 25.0
+
+    io:println(<float> 245.32f); // @output 245.32
+
+    io:println(<float> 245.32F); // @output 245.32
+
+    io:println(<float> 245.32d); // @output 245.32
+
+    io:println(<float> 245.32D); // @output 245.32
+
+    io:println(<float> .99f); // @output 0.99
+
+    io:println(<float> .99F); // @output 0.99
+
+    io:println(<float> .99d); // @output 0.99
+
+    io:println(<float> .99D); // @output 0.99
+}
+
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to float type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<float> 25.e174f); // @output 2.5E175
+
+    io:println(<float> 25.e174F); // @output 2.5E175
+
+    io:println(<float> 25.e174d); // @output 2.5E175
+
+    io:println(<float> 25.e174D); // @output 2.5E175
+
+    io:println(<float> 25.E174f); // @output 2.5E175
+
+    io:println(<float> 25.E174F); // @output 2.5E175
+
+    io:println(<float> 25.E174d); // @output 2.5E175
+
+    io:println(<float> 25.E174D); // @output 2.5E175
+
+    io:println(<float> 245.32e174f); // @output 2.4532E176
+
+    io:println(<float> 245.32e174F); // @output 2.4532E176
+
+    io:println(<float> 245.32e174d); // @output 2.4532E176
+
+    io:println(<float> 245.32e174D); // @output 2.4532E176
+
+    io:println(<float> 245.32E174F); // @output 2.4532E176
+
+    io:println(<float> 245.32E174d); // @output 2.4532E176
+
+    io:println(<float> 245.32E174D); // @output 2.4532E176
+
+    io:println(<float> .99e174f); // @output 9.9E173
+
+    io:println(<float> .99e174F); // @output 9.9E173
+
+    io:println(<float> .99e174d); // @output 9.9E173
+
+    io:println(<float> .99e174D); // @output 9.9E173
+    
+    io:println(<float> .99E174f); // @output 9.9E173
+    
+    io:println(<float> .99E174F); // @output 9.9E173
+    
+    io:println(<float> .99E174d); // @output 9.9E173
+
+    io:println(<float> .99E174D); // @output 9.9E173
+
+    io:println(<float> 25.e+174f); // @output 2.5E175
+
+    io:println(<float> 25.e-174F); // @output 2.5E-173
+
+    io:println(<float> 25.e+174d); // @output 2.5E175
+
+    io:println(<float> 25.e-174D); // @output 2.5E-173
+
+    io:println(<float> 25.E+174f); // @output 2.5E175
+
+    io:println(<float> 25.E-174F); // @output 2.5E-175
+
+    io:println(<float> 25.E+174d); // @output 2.5E175
+
+    io:println(<float> 25.E-174D); // @output 2.5E-173
+
+    io:println(<float> 245.32e+174f); // @output 2.4532E176
+
+    io:println(<float> 245.32e-174F); // @output 2.4532E-172
+
+    io:println(<float> 245.32e+174d); // @output 2.4532E176
+
+    io:println(<float> 245.32e-174D); // @output 2.4532E-172
+
+    io:println(<float> 245.32E+174f); // @output 2.4532E176
+
+    io:println(<float> 245.32E-174F); // @output 2.4532E-172
+
+    io:println(<float> 245.32E+174d); // @output 2.4532E176
+
+    io:println(<float> 245.32E-174D); // @output 2.4532E-172
+
+    io:println(<float> .99e+174f); // @output 9.9E173
+
+    io:println(<float> .99e-174F); // @output 9.9E-175
+
+    io:println(<float> .99e+174d); // @output 9.9E173
+
+    io:println(<float> .99e-174D); // @output 9.9E-175
+
+    io:println(<float> .99E+174f); // @output 9.9E173
+
+    io:println(<float> .99E-174F); // @output 9.9E-175
+
+    io:println(<float> .99E+174d); // @output 9.9E173
+
+    io:println(<float> .99E-174D); // @output 9.9E-175
+
+
+    io:println(<float> 25f); // @output 25.0
+
+    io:println(<float> 25F); // @output 25.0
+    
+    io:println(<float> 25d); // @output 25.0
+    
+    io:println(<float> 25D); // @output 25.0
+
+    io:println(<float> 9.99E+6111D); // @output Infinity
+
+    io:println(<float> 1E-6176d); // @output 0.0
+}
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to decimal type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<decimal> 25e174); // @output 2.5E+175
+
+    io:println(<decimal> 25E174); // @output 2.5E+175
+
+
+    io:println(<decimal> 25e+174); // @output 2.5E+175
+
+    io:println(<decimal> 25E-174); // @output 2.5E-173
+
+
+    io:println(<decimal> 25e174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25e174F); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25e174d); // @output 2.5E+175
+
+    io:println(<decimal> 25e174D); // @output 2.5E+175
+
+    io:println(<decimal> 25e174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25e174F); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25e174d); // @output 2.5E+175
+
+    io:println(<decimal> 25e174D); // @output 2.5E+175
+
+   
+    io:println(<decimal> 25e+174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25e-174F); // @output 2.500000000000000102006165118769265E-173
+
+    io:println(<decimal> 25e+174d); // @output 2.5E+175
+
+    io:println(<decimal> 25e-174D); // @output 2.5E-173
+
+    io:println(<decimal> 25E+174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25E-174F); // @output 2.500000000000000102006165118769265E-173
+
+    io:println(<decimal> 25E+174d); // @output 2.5E+175
+
+    io:println(<decimal> 25E-174D); // @output 2.5E-173
+
+
+    io:println(<decimal> 25f); // @output 25
+
+    io:println(<decimal> 25F); // @output 25
+
+    io:println(<decimal> 25d); // @output 25
+
+    io:println(<decimal> 25D); // @output 25
+
+
+    io:println(<decimal> 25.); // @output 25
+
+    io:println(<decimal> 245.32); // @output 245.32
+
+    io:println(<decimal> .99); // @output 0.99
+
+
+
+    io:println(<decimal> 25.e174); // @output 2.5E+175
+    
+    io:println(<decimal> 25.E174); // @output 2.5E+175
+
+    io:println(<decimal> 243.32e174); // @output 2.4332E+176
+
+    io:println(<decimal> 245.32E174); // @output 2.4532E+176
+
+    io:println(<decimal> 99e174); // @output 9.9E+175
+
+    io:println(<decimal> .99E174); // @output 9.9E+173
+
+
+    io:println(<decimal> 25.e+174); // @output 2.5E+175
+
+    io:println(<decimal> 25.E-174); // @output 2.5E-173
+
+    io:println(<decimal> 243.32e+174); // @output 2.4332E+176
+
+    io:println(<decimal> 245.32E-174); // @output 2.4532E-172
+
+    io:println(<decimal> .99e+174); // @output 9.9E+173
+
+    io:println(<decimal> .99E-174); // @output 9.9E-175
+
+    io:println(<decimal> 25.f); // @output 25
+
+    io:println(<decimal> 25.F); // @output 25
+
+    io:println(<decimal> 25.d); // @output 25
+
+    io:println(<decimal> 25.D); // @output 25
+
+    io:println(<decimal> 245.32f); // @output 245.3199999999999931787897367030382
+
+    io:println(<decimal> 245.32F); // @output 245.3199999999999931787897367030382
+
+    io:println(<decimal> 245.32d); // @output 245.32
+
+    io:println(<decimal> 245.32D); // @output 245.32
+
+    io:println(<decimal> .99f); // @output 0.9899999999999999911182158029987477
+
+    io:println(<decimal> .99F); // @output 0.9899999999999999911182158029987477
+
+    io:println(<decimal> .99d); // @output 0.99
+
+    io:println(<decimal> .99D); // @output 0.99
+}
+
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to decimal type.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<decimal> 25.e174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.e174F); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.e174d); // @output 2.5E+175
+
+    io:println(<decimal> 25.e174D); // @output 2.5E+175
+
+    io:println(<decimal> 25.E174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.E174F); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.E174d); // @output 2.5E+175
+
+    io:println(<decimal> 25.E174D); // @output 2.5E+175
+
+    io:println(<decimal> 245.32e174f); // @output 2.453199999999999906700776863017451E+176
+
+    io:println(<decimal> 245.32e174F); // @output 2.453199999999999906700776863017451E+176
+
+    io:println(<decimal> 245.32e174d); // @output 2.4532E+176
+
+    io:println(<decimal> 245.32e174D); // @output 2.4532E+176
+
+    io:println(<decimal> 245.32E174F); // @output 2.453199999999999906700776863017451E+176
+
+    io:println(<decimal> 245.32E174d); // @output 2.4532E+176
+
+    io:println(<decimal> 245.32E174D); // @output 2.4532E+176
+
+    io:println(<decimal> .99e174f); // @output 9.899999999999999342671415357266355E+173
+
+    io:println(<decimal> .99e174F); // @output 9.899999999999999342671415357266355E+173
+
+    io:println(<decimal> .99e174d); // @output 9.9E+173
+
+    io:println(<decimal> .99e174D); // @output 9.9E+173
+    
+    io:println(<decimal> .99E174f); // @output 9.899999999999999342671415357266355E+173
+    
+    io:println(<decimal> .99E174F); // @output 9.899999999999999342671415357266355E+173
+    
+    io:println(<decimal> .99E174d); // @output 9.9E+173
+
+    io:println(<decimal> .99E174D); // @output 9.9E+173
+
+    io:println(<decimal> 25.e+174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.e-174F); // @output 2.500000000000000102006165118769265E-173
+
+    io:println(<decimal> 25.e+174d); // @output 2.5E+175
+
+    io:println(<decimal> 25.e-174D); // @output 2.5E-173
+
+    io:println(<decimal> 25.E+174f); // @output 2.500000000000000018622451255185800E+175
+
+    io:println(<decimal> 25.E-174F); // @output 2.500000000000000102006165118769265E-173
+
+    io:println(<decimal> 25.E+174d); // @output 2.5E+175
+
+    io:println(<decimal> 25.E-174D); // @output 2.5E-173
+
+    io:println(<decimal> 245.32e+174f); // @output 2.453199999999999906700776863017451E+176
+
+    io:println(<decimal> 245.32e-174F); // @output 2.453200000000000117908269477326127E-172
+
+    io:println(<decimal> 245.32e+174d); // @output 2.4532E+176
+
+    io:println(<decimal> 245.32e-174D); // @output 2.4532E-172
+
+    io:println(<decimal> 245.32E+174f); // @output 2.453199999999999906700776863017451E+176
+
+    io:println(<decimal> 245.32E-174F); // @output 2.453200000000000117908269477326127E-172
+
+    io:println(<decimal> 245.32E+174d); // @output 2.4532E+176
+
+    io:println(<decimal> 245.32E-174D); // @output 2.4532E-172
+
+    io:println(<decimal> .99e+174f); // @output 9.899999999999999342671415357266355E+173
+
+    io:println(<decimal> .99e-174F); // @output 9.900000000000000520653878086325734E-175
+
+    io:println(<decimal> .99e+174d); // @output 9.9E+173
+
+    io:println(<decimal> .99e-174D); // @output 9.9E-175
+
+    io:println(<decimal> .99E+174f); // @output 9.899999999999999342671415357266355E+173
+
+    io:println(<decimal> .99E-174F); // @output 9.900000000000000520653878086325734E-175
+
+    io:println(<decimal> .99E+174d); // @output 9.9E+173
+
+    io:println(<decimal> .99E-174D); // @output 9.9E-175
+
+
+    io:println(<decimal> 25f); // @output 25
+
+    io:println(<decimal> 25F); // @output 25
+    
+    io:println(<decimal> 25d); // @output 25
+    
+    io:println(<decimal> 25D); // @output 25
+
+    io:println(<decimal> 9.99E+6111); // @output 9.99E+6111
+
+    io:println(<decimal> 1E-6176); // @output 1E-6176
+
+    io:println(<decimal> 1E-6176f); // @output  0
+}
+
+Test-Case: output
+Description: Test DecimalFloatingPointNumber with valid type cast to decimal type.
+Fail-Issue: ballerina-lang #32938
+Labels: type-cast-expr, FloatTypeSuffix
+
+public function main() {
+    io:println(<decimal> 9.99E+6111f);
+}
+
+Test-Case: output
+Description: Test HexFloatingPointLiteral with valid type cast to integer type.
+Labels: type-cast-expr, HexFloatingPointLiteral
+
+public function main() {
+    io:println(<int> 0x3eA3p34); // @output 275479202365440
+
+    io:println(<int> 0x3eA3P34); // @output 275479202365440
+
+    io:println(<int> 0X3eA3p34); // @output 275479202365440
+
+    io:println(<int> 0X3eA3P34); // @output 275479202365440
+
+    io:println(<int> 0x3eA3p+34); // @output 275479202365440
+
+    io:println(<int> 0x3eA3P-34); // @output 0
+
+    io:println(<int> 0X3eA3p+34); // @output 275479202365440
+
+    io:println(<int> 0X3eA3P-34); // @output 0
+
+
+    io:println(<int> 0x3eA3.4Eb2); // @output 16035
+
+    io:println(<int> 0x.4Eb2); // @output 0
+
+    io:println(<int> 0X3eA3.4Eb2); // @output 16035
+
+    io:println(<int> 0X.4Eb2); // @output 0
+
+
+    io:println(<int> 0x3eA3.4Eb2p45); // @output 564192222245814272
+
+    io:println(<int> 0x3eA3.4Eb2P45); // @output 564192222245814272
+
+    io:println(<int> 0x.4Eb2p45); // @output 10815801393152
+
+    io:println(<int> 0x.4Eb2P45); // @output 10815801393152
+
+    io:println(<int> 0X3eA3.4Eb2p45); // @output 564192222245814272
+
+    io:println(<int> 0X3eA3.4Eb2P45); // @output 564192222245814272
+
+    io:println(<int> 0X.4Eb2p45); // @output 10815801393152
+
+    io:println(<int> 0X.4Eb2P45); // @output 10815801393152
+
+
+    io:println(<int> 0x3eA3.4Eb2p+45); // @output 564192222245814272
+
+    io:println(<int> 0x3eA3.4Eb2P-45); // @output 0
+
+    io:println(<int> 0x.4Eb2p+45); // @output 10815801393152
+
+    io:println(<int> 0x.4Eb2P-45); // @output 0
+
+    io:println(<int> 0X3eA3.4Eb2p+45); // @output 564192222245814272
+
+    io:println(<int> 0X3eA3.4Eb2P-45); // @output 0
+
+    io:println(<int> 0X.4Eb2p+45); // @output 10815801393152
+
+    io:println(<int> 0X.4Eb2P-45); // @output 0
+}
+
+Test-Case: output
+Description: Test HexFloatingPointLiteral with valid type cast to float type.
+Labels: type-cast-expr, HexFloatingPointLiteral
+
+public function main() {
+    io:println(<float>  0x3eA3p34); // @output 2.7547920236544E14
+
+    io:println(<float>  0x3eA3P34); // @output 2.7547920236544E14
+
+    io:println(<float>  0X3eA3p34); // @output 2.7547920236544E14
+
+    io:println(<float>  0X3eA3P34); // @output 2.7547920236544E14
+
+    io:println(<float>  0x3eA3p+34); // @output 2.7547920236544E14
+
+    io:println(<float>  0x3eA3P-34); // @output 9.333598427474499E-7
+
+    io:println(<float>  0X3eA3p+34); // @output 2.7547920236544E14
+
+    io:println(<float>  0X3eA3P-34); // @output 9.333598427474499E-7
+
+
+    io:println(<float>  0x3eA3.4Eb2); // @output 16035.307403564453
+
+    io:println(<float>  0x.4Eb2); // @output 0.307403564453125
+
+    io:println(<float>  0X3eA3.4Eb2); // @output 16035.307403564453
+
+    io:println(<float>  0X.4Eb2); // @output 0.307403564453125
+
+
+    io:println(<float>  0x3eA3.4Eb2p45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0x3eA3.4Eb2P45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0x.4Eb2p45); // @output 1.0815801393152E13
+
+    io:println(<float>  0x.4Eb2P45); // @output 1.0815801393152E13
+
+    io:println(<float>  0X3eA3.4Eb2p45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0X3eA3.4Eb2P45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0X.4Eb2p45); // @output 1.0815801393152E13
+
+    io:println(<float>  0X.4Eb2P45); // @output 1.0815801393152E13
+
+
+    io:println(<float>  0x3eA3.4Eb2p+45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0x3eA3.4Eb2P-45); // @output 4.55750847651315E-10
+
+    io:println(<float>  0x.4Eb2p+45); // @output 1.0815801393152E13
+
+    io:println(<float>  0x.4Eb2P-45); // @output 8.736934786757189E-15
+
+    io:println(<float>  0X3eA3.4Eb2p+45); // @output 5.6419222224581427E17
+
+    io:println(<float>  0X3eA3.4Eb2P-45); // @output 4.55750847651315E-10
+
+    io:println(<float>  0X.4Eb2p+45); // @output 1.0815801393152E13
+
+    io:println(<float>  0X.4Eb2P-45); // @output 8.736934786757189E-15
+}
+
+Test-Case: output
+Description: Test HexFloatingPointLiteral with valid type cast to decimal type.
+Labels: type-cast-expr, HexFloatingPointLiteral
+
+public function main() {
+    io:println(<decimal>  0x3eA3p34); // @output 275479202365440
+
+    io:println(<decimal>  0x3eA3P34); // @output 275479202365440
+
+    io:println(<decimal>  0X3eA3p34); // @output 275479202365440
+
+    io:println(<decimal>  0X3eA3P34); // @output 275479202365440
+
+    io:println(<decimal>  0x3eA3p+34); // @output 275479202365440
+
+    io:println(<decimal>  0x3eA3P-34); // @output 9.333598427474498748779296875E-7
+
+    io:println(<decimal>  0X3eA3p+34); // @output 275479202365440
+
+    io:println(<decimal>  0X3eA3P-34); // @output 9.333598427474498748779296875E-7
+
+
+    io:println(<decimal>  0x3eA3.4Eb2); // @output 16035.307403564453125
+
+    io:println(<decimal>  0x.4Eb2); // @output 0.307403564453125
+
+    io:println(<decimal>  0X3eA3.4Eb2); // @output 16035.307403564453125
+
+    io:println(<decimal>  0X.4Eb2); // @output 0.307403564453125
+
+
+    io:println(<decimal>  0x3eA3.4Eb2p45); // @output 564192222245814272
+
+    io:println(<decimal>  0x3eA3.4Eb2P45); // @output 564192222245814272
+
+    io:println(<decimal>  0x.4Eb2p45); // @output 10815801393152
+
+    io:println(<decimal>  0x.4Eb2P45); // @output 10815801393152
+
+    io:println(<decimal>  0X3eA3.4Eb2p45); // @output 564192222245814272
+
+    io:println(<decimal>  0X3eA3.4Eb2P45); // @output 564192222245814272
+
+    io:println(<decimal>  0X.4Eb2p45); // @output 10815801393152
+
+    io:println(<decimal>  0X.4Eb2P45); // @output 10815801393152
+
+
+    io:println(<decimal>  0x3eA3.4Eb2p+45); // @output 564192222245814272
+
+    io:println(<decimal>  0x3eA3.4Eb2P-45); // @output 4.557508476513150164066701108822599E-10
+
+    io:println(<decimal>  0x.4Eb2p+45); // @output 10815801393152
+
+    io:println(<decimal>  0x.4Eb2P-45); // @output 8.736934786757188931005657650530338E-15
+
+    io:println(<decimal>  0X3eA3.4Eb2p+45); // @output 564192222245814272
+
+    io:println(<decimal>  0X3eA3.4Eb2P-45); // @output 4.557508476513150164066701108822599E-10
+
+    io:println(<decimal>  0X.4Eb2p+45); // @output 10815801393152
+
+    io:println(<decimal>  0X.4Eb2P-45); // @output 8.736934786757188931005657650530338E-15
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, FloatTypeSuffix
+
+public function main() {
+    io:println(<int>  245.32e84f); // @error 'float' value  cannot be converted to 'int`   
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, DecimalTypeSuffix
+
+public function main() {
+    io:println(<int>  245.32e84D); // @error 'decimal' value  cannot be converted to 'int`   
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, DecimalTypeSuffix
+
+public function main() {
+    io:println(<int>  9.99E+6111d); // @error 'decimal' value  cannot be converted to 'int`
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, DecimalTypeSuffix
+
+public function main() {
+    io:println(<int>  1E-6176d); // @error 'decimal' value  cannot be converted to 'int` 
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    io:println(<int>  9.99E+6111); // @error 'float' value  cannot be converted to 'int` 
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr
+
+public function main() {
+    io:println(<int>  1E-6176); // @error 'float' value  cannot be converted to 'int`  
+}
+
+Test-Case: panic
+Description: Test invalid DecimalFloatingPointNumber type cast.
+Labels: type-cast-expr, HexFloatingPointLiteral
+
+public function main() {
+    io:println(<int>  0x1.fffffffffffffp+1024); // @error 'float' value  cannot be converted to 'int`    
+}
+
+// Test-Case: error
+// Description: Test invalid DecimalFloatingPointNumber type cast.
+// Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+
+public function main() {
+    any x = <()> 25e1742; // @error 'float' cannot be cast to '()'
+    x = <()> 25e+1742; // @error 'float' cannot be cast to '()'
+    x = <()> 25e1742f; // @error 'float' cannot be cast to '()'
+    x = <()> 25e1742D; // @error 'decimal' cannot be cast to '()'
+    x = <()> 25e+1742f; // @error 'float' cannot be cast to '()'
+    x = <()> 25e-1742F; // @error 'float' cannot be cast to '()'
+    x = <()> 25E+1742d; // @error 'decimal' cannot be cast to '()'
+    x = <()> 25E-1742D; // @error 'decimal' cannot be cast to '()'
+    x = <()> 25.; // @error 'float' cannot be cast to '()'
+    x = <()> 245.32; // @error 'float' cannot be cast to '()'
+    x = <()> .99; // @error 'float' cannot be cast to '()'
+    x = <()> 25.e1742; // @error 'float' cannot be cast to '()'
+    x = <()> 243.32e1742; // @error 'float' cannot be cast to '()'
+    x = <()> .99E1742; // @error 'float' cannot be cast to '()'
+    x = <()> 25.e+1742; // @error 'float' cannot be cast to '()'
+    x = <()> 245.32E-1742; // @error 'float' cannot be cast to '()'
+    x = <()> .99e+1742; // @error 'float' cannot be cast to '()'
+    x = <()> 25.f; // @error 'float' cannot be cast to '()'
+    x = <()> 25.d; // @error 'decimal' cannot be cast to '()'
+    x = <()> 245.32f; // @error 'float' cannot be cast to '()'
+    x = <()> 245.32D; // @error 'decimal' cannot be cast to '()'
+    x = <()> 25.e1742f; // @error 'float' cannot be cast to '()'
+    x = <()> 245.32e1742D; // @error 'decimal' cannot be cast to '()'
+    x = <()> .99e1742F; // @error 'float' cannot be cast to '()'
+    x = <()> 25.e+1742f; // @error 'float' cannot be cast to '()'
+    x = <()> 245.32e+1742f; // @error 'float' cannot be cast to '()'
+    x = <()> .99e-1742D; // @error 'decimal' cannot be cast to '()'
+    x = <()> 25f; // @error 'float' cannot be cast to '()'        
+    x = <()> 9.99E+6111f; // @error 'float' cannot be cast to '()' 
+    x = <()> 1E-6176df; // @error 'float' cannot be cast to '()'
+
+    x = <string> 25e1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 25e+1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 25e1742f; // @error 'float' cannot be cast to 'string'
+    x = <string> 25e1742D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 25e+1742f; // @error 'float' cannot be cast to 'string'
+    x = <string> 25e-1742F; // @error 'float' cannot be cast to 'string'
+    x = <string> 25E+1742d; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 25E-1742D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 25.; // @error 'float' cannot be cast to 'string'
+    x = <string> 245.32; // @error 'float' cannot be cast to 'string'
+    x = <string> .99; // @error 'float' cannot be cast to 'string'
+    x = <string> 25.e1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 243.32e1742; // @error 'float' cannot be cast to 'string'
+    x = <string> .99E1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 25.e+1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 245.32E-1742; // @error 'float' cannot be cast to 'string'
+    x = <string> .99e+1742; // @error 'float' cannot be cast to 'string'
+    x = <string> 25.f; // @error 'float' cannot be cast to 'string'
+    x = <string> 25.d; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 245.32f; // @error 'float' cannot be cast to 'string'
+    x = <string> 245.32D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 25.e1742f; // @error 'float' cannot be cast to 'string'
+    x = <string> 245.32e1742D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> .99e1742F; // @error 'float' cannot be cast to 'string'
+    x = <string> 25.e+1742f; // @error 'float' cannot be cast to 'string'
+    x = <string> 245.32e+1742f; // @error 'float' cannot be cast to 'string'
+    x = <string> .99e-1742D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 25f; // @error 'float' cannot be cast to 'string'        
+    x = <string> 25D; // @error 'decimal' cannot be cast to 'string'
+    x = <string> 9.99E+6111f; // @error 'float' cannot be cast to 'string' 
+    x = <string> 1E-6176df; // @error 'float' cannot be cast to 'string'
+
+    x = <boolean> 25e1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25e+1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25e1742f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25e1742D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 25e+1742f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25e-1742F; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25E+1742d; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 25E-1742D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 25.; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 245.32; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> .99; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25.e1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 243.32e1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> .99E1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25.e+1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 245.32E-1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> .99e+1742; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25.f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25.d; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 245.32f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 245.32D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 25.e1742f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 245.32e1742D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> .99e1742F; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 25.e+1742f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 245.32e+1742f; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> .99e-1742D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 25f; // @error 'float' cannot be cast to 'boolean'        
+    x = <boolean> 25D; // @error 'decimal' cannot be cast to 'boolean'
+    x = <boolean> 9.99E+6111f; // @error 'float' cannot be cast to 'boolean' 
+    x = <boolean> 1E-6176df; // @error 'float' cannot be cast to 'boolean'
+
+}
+
+Test-Case: error
+Description: Test invalid HexFloatingPointLiteral type cast.
+Labels: type-cast-expr, HexFloatingPointLiteral
+
+public function main() {
+    any x = <()> 0x3eA3p34; // @error 'float' cannot be cast to '()'
+    x = <()> 0X3eA3p34; // @error 'float' cannot be cast to '()'
+    x = <()> 0x3eA3p+34; // @error 'float' cannot be cast to '()'
+    x = <()> 0X3eA3P-34; // @error 'float' cannot be cast to '()'
+    x = <()> 0x3eA3.4Eb2; // @error 'float' cannot be cast to '()'
+    x = <()> 0x.4Eb2; // @error 'float' cannot be cast to '()'
+    x = <()> 0x4Eb2.; // @error 'float' cannot be cast to '()'
+    x = <()> 0x3eA3.4Eb2p45; // @error 'float' cannot be cast to '()'
+    x = <()> 0X.4Eb2P45; // @error 'float' cannot be cast to '()'
+    x = <()> 0X4Eb2.P45; // @error 'float' cannot be cast to '()'
+    x = <()> 0x3eA3.4Eb2P-45; // @error 'float' cannot be cast to '()'
+    x = <()> 0X.4Eb2p+45; // @error 'float' cannot be cast to '()'
+    x = <()> 0X4Eb2.p+45; // @error 'float' cannot be cast to '()'
+     x = <())> 0x1.ffffffffffffffp+1023; // @error 'float' cannot be cast to '())'
+
+    x = <string> 0x3eA3p34; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X3eA3p34; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x3eA3p+34; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X3eA3P-34; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x3eA3.4Eb2; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x.4Eb2; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x4Eb2.; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x3eA3.4Eb2p45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X.4Eb2P45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X4Eb2.P45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x3eA3.4Eb2P-45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X.4Eb2p+45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0X4Eb2.p+45; // @error 'float' cannot be cast to 'string'
+    x = <string> 0x1.ffffffffffffffp+1023; // @error 'float' cannot be cast to 'string'
+
+    x = <boolean> 0x3eA3p34; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X3eA3p34; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x3eA3p+34; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X3eA3P-34; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x3eA3.4Eb2; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x.4Eb2; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x4Eb2.; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x3eA3.4Eb2p45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X.4Eb2P45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X4Eb2.P45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x3eA3.4Eb2P-45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X.4Eb2p+45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0X4Eb2.p+45; // @error 'float' cannot be cast to 'boolean'
+    x = <boolean> 0x1.ffffffffffffffp+1023; // @error 'float' cannot be cast to 'boolean'
+}
 
 
 
