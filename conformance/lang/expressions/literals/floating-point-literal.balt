@@ -156,7 +156,7 @@ public function main() {
     a = 785E-207f;
     io:println(a); // @output 7.85E-205
 
-        a = 25e174;
+    a = 25e174;
     io:println(a); // @output 2.5E175 
 
     a = 25E174;
@@ -447,20 +447,7 @@ Description: Test decimal floating point number with floating point type descrip
 Labels: float, decimal, FloatTypeSuffix, DecimalTypeSuffix
 
 public function main() {
-
-    decimal|float g = 0;
-    io:println(g); // @output 0.0
-
-    g = 9;
-    io:println(g); // @output 9.0
-
-    g = 5676345;
-    io:println(g); // @output 5676345.0
-
-    g = 56763457;
-    io:println(g); // @output 5.6763457E7
-
-    g = 0d;
+    decimal|float g = 0d;
     io:println(g); // @output 0
 
     g = 0f;
@@ -763,26 +750,7 @@ Description: Test hex floating point literal with floating point type descriptor
 Labels: float, decimal, HexFloatingPointLiteral
 
 public function main() {
-    
-    float|decimal c = 0x0;
-    io:println(c); // @output 0.0
-
-    c = 0X9;
-    io:println(c); // @output 9.0
-
-    c = 0X2409;
-    io:println(c); // @output 9225.0
-
-    c = 0X240af;
-    io:println(c); // @output 147631.0
-
-    c = 0X240AF;
-    io:println(c); // @output 147631.0
-
-    c = 0x240aDfBcEe;
-    io:println(c); // @output 1.5480125771E11
-
-    c = 0x240aDfBcEep4;
+    float|decimal c = 0x240aDfBcEep4;
     io:println(c); // @output 2.47682012336E12
 
     c = 0x240aDfBcEeP4;
@@ -1238,11 +1206,7 @@ Description: Test decimal floating point numbers with leading zeros
 Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
 
 public function main() {
-    float|decimal a = 00; // @error invalid floating point with leading '0'
-
-    a = 012; // @error invalid floating point with leading '0'
-
-    a = 03f; // @error invalid floating point with leading '0'
+    float|decimal a = 03f; // @error invalid floating point with leading '0'
 
     a = 03F; // @error invalid floating point with leading '0'
 
@@ -1305,119 +1269,119 @@ Labels: decimal, float, FloatTypeSuffix, DecimalTypeSuffix
 
 public function main() {
     
-    float|decimal a = 25h174; // @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    float|decimal a = 25h174; // @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
     
-    a = 25e 174; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25e 174; // @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25 e174; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25 e174; // @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25E_174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+    a = 25E_174; // @error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
 
-    a = 25E++174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+    a = 25E++174; // @error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
 
-    a = 25E--174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+    a = 25E--174; // @error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
 
-    a = 25E+-174; // @parser-error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
+    a = 25E+-174; // @error invalid DecimalFloatingPointNumber due to invalid sign after ExponentIndicator
 
-    a = 25E+ABC; // @parser-error invalid DecimalFloatingPointNumber due to missing digits after the sign in Exponent
+    a = 25E+ABC; // @error invalid DecimalFloatingPointNumber due to missing digits after the sign in Exponent
 
-    a = 25E +174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E +174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25e+ 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25e+ 174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25E-ABC; // @parser-error invalid DecimalFloatingPointNumber due to invalid characters after the sign in Exponent
+    a = 25E-ABC; // @error invalid DecimalFloatingPointNumber due to invalid characters after the sign in Exponent
 
-    a = 25E -174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E -174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25e- 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25e- 174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
     
-    a = 25E-174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25E-174S; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25E+174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25E+174S; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25E174s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25E174s; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = .25s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = .25s; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25.s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25.s; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25.23s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25.23s; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = .25E-174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = .25E-174S; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25.E+174S; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25.E+174S; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25.67E174s; //  @parser-error invalid DecimalFloatingPointNumber due to invalid Suffix
+    a = 25.67E174s; //  @error invalid DecimalFloatingPointNumber due to invalid Suffix
 
-    a = 25E+174 f; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E+174 f; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25E+174 F; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E+174 F; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25E+174 d; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E+174 d; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25E+174 D; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25E+174 D; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25,; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+    a = 25,; //  @error invalid DecimalFloatingPointNumber due invalid decimal point symbol
 
-    a = ,25; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+    a = ,25; //  @error invalid DecimalFloatingPointNumber due invalid decimal point symbol
 
-    a = 235,55; //  @parser-error invalid DecimalFloatingPointNumber due invalid decimal point symbol
+    a = 235,55; //  @error invalid DecimalFloatingPointNumber due invalid decimal point symbol
 
-    a = 235. 55; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 235. 55; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 235 .55; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 235 .55; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25 .;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25 .;  //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = . 99;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = . 99;  //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = . 99;  //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = . 99;  //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25. e174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25. e174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25.E 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25.E 174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25 .E174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 25 .E174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 25.B174; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    a = 25.B174; //  @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
 
-    a = 243.32B174; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    a = 243.32B174; //  @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
 
-    a = 243.32e 174; //  @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 243.32e 174; //  @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 243.32 e1742; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary space
+    a = 243.32 e1742; // @error invalid DecimalFloatingPointNumber due to unnecessary space
 
-    a = 245.32 E 1742; // @parser-error invalid DecimalFloatingPointNumber due to unnecessary spaces
+    a = 245.32 E 1742; // @error invalid DecimalFloatingPointNumber due to unnecessary spaces
 
-    a = .99eabc; // @parser-error invalid DecimalFloatingPointNumber due to invalid characters after the ExponentIndicator in Exponent
+    a = .99eabc; // @error invalid DecimalFloatingPointNumber due to invalid characters after the ExponentIndicator in Exponent
 
-    a = 25.B+1742; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    a = 25.B+1742; //  @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
 
-    a = 25.BCF+1742; //  @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    a = 25.BCF+1742; //  @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
 
-    a = 25.TYU+GFH; // @parser-error invalid DecimalFloatingPointNumber due to invalid Exponent
+    a = 25.TYU+GFH; // @error invalid DecimalFloatingPointNumber due to invalid Exponent
 
-    a = 25.TYUGFH; // @parser-error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
+    a = 25.TYUGFH; // @error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
 
-    a = TYUGFH.23; // @parser-error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
+    a = TYUGFH.23; // @error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
 
-    a = TYUGFH.; // @parser-error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
+    a = TYUGFH.; // @error invalid DecimalFloatingPointNumber due to lhs of decimal point not being a DecimalNumber
     
-    a = .TYUGFH; // @parser-error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
+    a = .TYUGFH; // @error invalid DecimalFloatingPointNumber due to rhs of decimal point not being digits
     
-    a = 25..23; // @parser-error invalid DecimalFloatingPointNumber due to multiple decimal point symbols 
+    a = 25..23; // @error invalid DecimalFloatingPointNumber due to multiple decimal point symbols 
 
-    a = 25.E+ty; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+    a = 25.E+ty; // @error invalid DecimalFloatingPointNumber due to incorrect Exponent
 
-    a = 25.Ety;  // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+    a = 25.Ety;  // @error invalid DecimalFloatingPointNumber due to incorrect Exponent
 
-    a = 25.BC2F+1742; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+    a = 25.BC2F+1742; // @error invalid DecimalFloatingPointNumber due to incorrect Exponent
 
-    a = 25.BC2F+17VF42; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+    a = 25.BC2F+17VF42; // @error invalid DecimalFloatingPointNumber due to incorrect Exponent
 
-    a = 25.BC2?F+17VF?42; // @parser-error invalid DecimalFloatingPointNumber due to incorrect Exponent
+    a = 25.BC2?F+17VF?42; // @error invalid DecimalFloatingPointNumber due to incorrect Exponent
 
-    a = 25.67p+20; // @parser-error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
+    a = 25.67p+20; // @error invalid DecimalFloatingPointNumber due to incorrect ExponentIndicator
 }
 
 Test-Case: error
@@ -1450,87 +1414,87 @@ Description: Test invalid hex floating point literal
 Labels: decimal, float, HexFloatingPointLiteral
 
 public function main() {
-    float|decimal a = 3eA3p34; // @parser-error invalid HexFloatingPointLiteral due to missing HexIndicator
+    float|decimal a = 3eA3p34; // @error invalid HexFloatingPointLiteral due to missing HexIndicator
 
-    a = 345eA; // @parser-error invalid HexFloatingPointLiteral due to missing HexIndicator
+    a = 345eA; // @error invalid HexFloatingPointLiteral due to missing HexIndicator
 
-    a = 0x3 eA3p34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3 eA3p34; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0X3eA3 p34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0X3eA3 p34; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0X3eA3p 34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0X3eA3p 34; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0X3eA3E34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponentIndicator
+    a = 0X3eA3E34; // @error invalid HexFloatingPointLiteral due to invalid HexExponentIndicator
 
-    a = 0X3eA3pAf; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0X3eA3pAf; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0aBV6p34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexNumber
+    a = 0aBV6p34; // @error invalid HexFloatingPointLiteral due to invalid HexNumber
 
-    a = 0XVVzp34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexNumber
+    a = 0XVVzp34; // @error invalid HexFloatingPointLiteral due to invalid HexNumber
 
-    a = 0X3eApVB; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0X3eApVB; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3eA3p++34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0x3eA3p++34; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3eA3p+3dS4; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0x3eA3p+3dS4; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3eA3p--34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0x3eA3p--34; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3eA3p-+34; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0x3eA3p-+34; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3eA3p.34; // @parser-error invalid HexFloatingPointLiteral due to invalid sign in HexExponent
+    a = 0x3eA3p.34; // @error invalid HexFloatingPointLiteral due to invalid sign in HexExponent
 
-    a = 0x3eA3p+ 34; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3eA3p+ 34; // @error invalid HexFloatingPointLiteral due to unnecessary space
    
-    a = 0x3eA3p+34f; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+    a = 0x3eA3p+34f; // @error invalid HexFloatingPointLiteral due to unnecessary suffix
 
-    a = 0x3eA3p+34F; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+    a = 0x3eA3p+34F; // @error invalid HexFloatingPointLiteral due to unnecessary suffix
 
-    a = 0x3eA3p+34D; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+    a = 0x3eA3p+34D; // @error invalid HexFloatingPointLiteral due to unnecessary suffix
 
-    a = 0x3eA3p+34d; // @parser-error invalid HexFloatingPointLiteral due to unnecessary suffix
+    a = 0x3eA3p+34d; // @error invalid HexFloatingPointLiteral due to unnecessary suffix
 
-    a = 0x3eA3H-34; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x3eA3H-34; // @error invalid HexFloatingPointLiteral
 
-    a = 8x3eA3p67; // @parser-error invalid HexFloatingPointLiteral due to invalid HexIndicator
+    a = 8x3eA3p67; // @error invalid HexFloatingPointLiteral due to invalid HexIndicator
 
-    a = 0Z3eA3p67; // @parser-error invalid HexFloatingPointLiteral due to invalid HexIndicator
+    a = 0Z3eA3p67; // @error invalid HexFloatingPointLiteral due to invalid HexIndicator
     
-    a = 0x3eA3 .4Eb2; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3eA3 .4Eb2; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0x3eA3. 4Eb2; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3eA3. 4Eb2; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0x3eZ3.4Eb2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+    a = 0x3eZ3.4Eb2p45; // @error invalid HexFloatingPointLiteral due to invalid HexDigit
 
-    a = 0x3e3.4EbZ2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+    a = 0x3e3.4EbZ2p45; // @error invalid HexFloatingPointLiteral due to invalid HexDigit
 
-    a = 0x3e3z.4EbZ2p45; // @parser-error invalid HexFloatingPointLiteral due to invalid HexDigit
+    a = 0x3e3z.4EbZ2p45; // @error invalid HexFloatingPointLiteral due to invalid HexDigit
     
-    a = 0x3e3.4Eb2p45Z; // @parser-error invalid HexFloatingPointLiteral due to invalid HexExponent
+    a = 0x3e3.4Eb2p45Z; // @error invalid HexFloatingPointLiteral due to invalid HexExponent
 
-    a = 0x3e3..4Eb2p45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x3e3..4Eb2p45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x3e3=4Eb2p45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x3e3=4Eb2p45; // @error invalid HexFloatingPointLiteral
 
-    a = .0x3e3; // @parser-error invalid HexFloatingPointLiteral
+    a = .0x3e3; // @error invalid HexFloatingPointLiteral
 
-    a = 0x3e3 .p23; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3e3 .p23; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0x3e3. p23; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x3e3. p23; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 3eA3.4Eb2p0x+45; // @parser-error invalid HexFloatingPointLiteral
+    a = 3eA3.4Eb2p0x+45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x3eA3.4Eb2pA+45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x3eA3.4Eb2pA+45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x..4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x..4Eb2P-45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x4E,b2P-45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x4E,b2P-45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x4E:b2P-45; // @parser-error invalid HexFloatingPointLiteral
+    a = 0x4E:b2P-45; // @error invalid HexFloatingPointLiteral
 
-    a = 0x. 4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x. 4Eb2P-45; // @error invalid HexFloatingPointLiteral due to unnecessary space
 
-    a = 0x .4Eb2P-45; // @parser-error invalid HexFloatingPointLiteral due to unnecessary space
+    a = 0x .4Eb2P-45; // @error invalid HexFloatingPointLiteral due to unnecessary space
 }
 
 Test-Case: error
@@ -2746,6 +2710,12 @@ public function main() {
     io:println(printEquality(+0.0, -0.0));  // @output true
                                             // @output false
 
+    io:println(printEquality(+0d, -0d));  // @output true
+                                            // @output false
+
+    io:println(printEquality(+0f, -0F));  // @output true
+                                            // @output false                                        
+
     io:println(printEquality(1.24e3, 12.40e2));// @output true
                                             // @output false
 
@@ -3439,6 +3409,9 @@ public function main() {
     io:println(+0 is -0); // @output true
     io:println(+0 == -0); // @output true
     io:println(+0 != -0); // @output false
+    io:println(+0f is -0f); // @output true
+    io:println(+0f == -0f); // @output true
+    io:println(+0f != -0f); // @output false
 }
 
 Test-Case: output
