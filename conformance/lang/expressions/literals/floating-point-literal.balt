@@ -2746,6 +2746,12 @@ public function main() {
     io:println(printEquality(+0.0, -0.0));  // @output true
                                             // @output false
 
+    io:println(printEquality(1.24e3, 12.40e2));// @output true
+                                            // @output false
+
+    io:println(printEquality(1.24e3d, 12.40e2d));// @output true
+                                            // @output false                                                                                
+
     io:println(printEquality(25e1742, 25E1742));  // @output true
                                                  // @output false
 
@@ -4386,7 +4392,7 @@ public function main() {
 
 // Test-Case: error
 // Description: Test invalid DecimalFloatingPointNumber type cast.
-// Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix
+// Labels: type-cast-expr, FloatTypeSuffix, DecimalTypeSuffix, string, boolean, nil-type
 
 public function main() {
     any x = <()> 25e1742; // @error 'float' cannot be cast to '()'
@@ -4488,7 +4494,7 @@ public function main() {
 
 Test-Case: error
 Description: Test invalid HexFloatingPointLiteral type cast.
-Labels: type-cast-expr, HexFloatingPointLiteral
+Labels: type-cast-expr, HexFloatingPointLiteral, string, boolean, nil-type
 
 public function main() {
     any x = <()> 0x3eA3p34; // @error 'float' cannot be cast to '()'
@@ -4535,6 +4541,579 @@ public function main() {
     x = <boolean> 0X.4Eb2p+45; // @error 'float' cannot be cast to 'boolean'
     x = <boolean> 0X4Eb2.p+45; // @error 'float' cannot be cast to 'boolean'
     x = <boolean> 0x1.ffffffffffffffp+1023; // @error 'float' cannot be cast to 'boolean'
+}
+
+public function subtypeIntDecimal(int|decimal x) {
+    io:println(x is decimal);
+    io:println(x is int); 
+}
+
+public function subtypeNilDecimal(()|decimal x) {
+    io:println(x is decimal);
+}
+
+public function subtypeDecimal(decimal x) {
+    io:println(x is decimal);
+}
+
+Test-Case: output
+Description: Test the basic type when the applicable contextually expected type is a subtype of decimal.
+Labels: decimal, int, is-expr, nil-type
+
+public function main() {
+    subtypeDecimal(25e1742); // @output true
+    subtypeDecimal(25e+1742); // @output true
+    subtypeDecimal(25e1742); // // @output true
+    subtypeDecimal(25E-1742); // // @output true
+    subtypeDecimal(25.); // @output true
+    subtypeDecimal(245.32); // @output true
+    subtypeDecimal(.99); // @output true
+    subtypeDecimal(25.e1742); // @output true
+    subtypeDecimal(243.32e1742); // @output true
+    subtypeDecimal(.99E1742); // @output true
+    subtypeDecimal(25.e+1742); // @output true
+    subtypeDecimal(245.32E-1742); // @output true
+    subtypeDecimal(.99e+1742); // @output true
+    subtypeDecimal(25); // // @output true
+    subtypeDecimal(9.99E+6111); // @output true 
+    subtypeDecimal(1E-6176); // @output true
+
+    subtypeNilDecimal(25e1742); // @output true
+    subtypeNilDecimal(25e+1742); // @output true
+    subtypeNilDecimal(25e1742); // // @output true
+    subtypeNilDecimal(25E-1742); // // @output true
+    subtypeNilDecimal(25.); // @output true
+    subtypeNilDecimal(245.32); // @output true
+    subtypeNilDecimal(.99); // @output true
+    subtypeNilDecimal(25.e1742); // @output true
+    subtypeNilDecimal(243.32e1742); // @output true
+    subtypeNilDecimal(.99E1742); // @output true
+    subtypeNilDecimal(25.e+1742); // @output true
+    subtypeNilDecimal(245.32E-1742); // @output true
+    subtypeNilDecimal(.99e+1742); // @output true
+    subtypeNilDecimal(25); // // @output true
+    subtypeNilDecimal(9.99E+6111); // @output true 
+    subtypeNilDecimal(1E-6176); // @output true
+
+    subtypeIntDecimal(25e1742); // @output true
+                                // @output false
+    subtypeIntDecimal(25e+1742); // @output true
+                                // @output false
+    subtypeIntDecimal(25e1742); // @output true
+                                // @output false
+    subtypeIntDecimal(25E-1742); // @output true
+                                 // @output false
+    subtypeIntDecimal(25.); // @output true
+                            // @output false
+    subtypeIntDecimal(245.32); // @output true
+                            // @output false
+    subtypeIntDecimal(.99); // @output true
+                            // @output false
+    subtypeIntDecimal(25.e1742); // @output true
+                                // @output false
+    subtypeIntDecimal(243.32e1742); // @output true
+                                    // @output false
+    subtypeIntDecimal(.99E1742); // @output true
+                                // @output false
+    subtypeIntDecimal(25.e+1742); // @output true
+                                    // @output false
+    subtypeIntDecimal(245.32E-1742); // @output true
+                                    // @output false
+    subtypeIntDecimal(.99e+1742); // @output true
+                                // @output false
+    subtypeIntDecimal(25); // @output false
+                            // @output true
+    subtypeIntDecimal(9.99E+6111); // @output true 
+                                    // @output false
+    subtypeIntDecimal(1E-6176); // @output true
+                                // @output false                             
+}
+
+
+public function subtypeIntFloat(int|float x) {
+    io:println(x is float);
+    io:println(x is int); 
+}
+
+public function subtypeNilFloat(()|float x) {
+    io:println(x is float);
+}
+
+public function subtypeFloat(float x) {
+    io:println(x is float);
+}
+
+Test-Case: output
+Description: Test the basic type when the applicable contextually expected type is a subtype of float.
+Labels: float, HexFloatingPointLiteral, int, nil-type, is-expr
+
+public function main() {
+    subtypeFloat(25e1742); // @output true
+    subtypeFloat(25e+1742); // @output true
+    subtypeFloat(25e1742); // // @output true
+    subtypeFloat(25E-1742); // // @output true
+    subtypeFloat(25.); // @output true
+    subtypeFloat(245.32); // @output true
+    subtypeFloat(.99); // @output true
+    subtypeFloat(25.e1742); // @output true
+    subtypeFloat(243.32e1742); // @output true
+    subtypeFloat(.99E1742); // @output true
+    subtypeFloat(25.e+1742); // @output true
+    subtypeFloat(245.32E-1742); // @output true
+    subtypeFloat(.99e+1742); // @output true
+    subtypeFloat(25); // // @output true
+    subtypeFloat(9.99E+6111); // @output true 
+    subtypeFloat(1E-6176); // @output true
+
+    subtypeFloat(0x3eA3p34); // @output true
+    subtypeFloat(0x3eA3P34); // @output true
+    subtypeFloat(0X3eA3p34); // @output true
+    subtypeFloat(0X3eA3P34); // @output true
+    subtypeFloat(0x3eA3p+34); // @output true
+    subtypeFloat(0x3eA3P-34); // @output true
+    subtypeFloat(0X3eA3p+34); // @output true
+    subtypeFloat(0X3eA3P-34); // @output true
+    subtypeFloat(0x3eA3.4Eb2); // @output true
+    subtypeFloat(0x.4Eb2); // @output true
+    subtypeFloat(0X3eA3.4Eb2); // @output true
+    subtypeFloat(0X.4Eb2); // @output true
+    subtypeFloat(0x3eA3.4Eb2p45); // @output true
+    subtypeFloat(0x3eA3.4Eb2P45); // @output true
+    subtypeFloat(0x.4Eb2p45); // @output true
+    subtypeFloat(0x.4Eb2P45); // @output true
+    subtypeFloat(0X3eA3.4Eb2p45); // @output true
+    subtypeFloat(0X3eA3.4Eb2P45); // @output true
+    subtypeFloat(0X.4Eb2p45); // @output true
+    subtypeFloat(0X.4Eb2P45); // @output true
+    subtypeFloat(0x3eA3.4Eb2p+45); // @output true
+    subtypeFloat(0x3eA3.4Eb2P-45); // @output true
+    subtypeFloat(0x.4Eb2p+45); // @output true
+    subtypeFloat(0x.4Eb2P-45); // @output true
+    subtypeFloat(0X3eA3.4Eb2p+45); // @output true
+    subtypeFloat(0X3eA3.4Eb2P-45); // @output true
+    subtypeFloat(0X.4Eb2p+45); // @output true
+    subtypeFloat(0X.4Eb2P-45); // @output true
+
+    subtypeNilFloat(25e1742); // @output true
+    subtypeNilFloat(25e+1742); // @output true
+    subtypeNilFloat(25e1742); // // @output true
+    subtypeNilFloat(25E-1742); // // @output true
+    subtypeNilFloat(25.); // @output true
+    subtypeNilFloat(245.32); // @output true
+    subtypeNilFloat(.99); // @output true
+    subtypeNilFloat(25.e1742); // @output true
+    subtypeNilFloat(243.32e1742); // @output true
+    subtypeNilFloat(.99E1742); // @output true
+    subtypeNilFloat(25.e+1742); // @output true
+    subtypeNilFloat(245.32E-1742); // @output true
+    subtypeNilFloat(.99e+1742); // @output true
+    subtypeNilFloat(25); // // @output true
+    subtypeNilFloat(9.99E+6111); // @output true 
+    subtypeNilFloat(1E-6176); // @output true
+
+    subtypeNilFloat(0x3eA3p34); // @output true
+    subtypeNilFloat(0x3eA3P34); // @output true
+    subtypeNilFloat(0X3eA3p34); // @output true
+    subtypeNilFloat(0X3eA3P34); // @output true
+    subtypeNilFloat(0x3eA3p+34); // @output true
+    subtypeNilFloat(0x3eA3P-34); // @output true
+    subtypeNilFloat(0X3eA3p+34); // @output true
+    subtypeNilFloat(0X3eA3P-34); // @output true
+    subtypeNilFloat(0x3eA3.4Eb2); // @output true
+    subtypeNilFloat(0x.4Eb2); // @output true
+    subtypeNilFloat(0X3eA3.4Eb2); // @output true
+    subtypeNilFloat(0X.4Eb2); // @output true
+    subtypeNilFloat(0x3eA3.4Eb2p45); // @output true
+    subtypeNilFloat(0x3eA3.4Eb2P45); // @output true
+    subtypeNilFloat(0x.4Eb2p45); // @output true
+    subtypeNilFloat(0x.4Eb2P45); // @output true
+    subtypeNilFloat(0X3eA3.4Eb2p45); // @output true
+    subtypeNilFloat(0X3eA3.4Eb2P45); // @output true
+    subtypeNilFloat(0X.4Eb2p45); // @output true
+    subtypeNilFloat(0X.4Eb2P45); // @output true
+    subtypeNilFloat(0x3eA3.4Eb2p+45); // @output true
+    subtypeNilFloat(0x3eA3.4Eb2P-45); // @output true
+    subtypeNilFloat(0x.4Eb2p+45); // @output true
+    subtypeNilFloat(0x.4Eb2P-45); // @output true
+    subtypeNilFloat(0X3eA3.4Eb2p+45); // @output true
+    subtypeNilFloat(0X3eA3.4Eb2P-45); // @output true
+    subtypeNilFloat(0X.4Eb2p+45); // @output true
+    subtypeNilFloat(0X.4Eb2P-45); // @output true
+
+
+    subtypeIntFloat(25e1742); // @output true
+                                // @output false
+    subtypeIntFloat(25e+1742); // @output true
+                                // @output false
+    subtypeIntFloat(25e1742); // @output true
+                                // @output false
+    subtypeIntFloat(25E-1742); // @output true
+                                 // @output false
+    subtypeIntFloat(25.); // @output true
+                            // @output false
+    subtypeIntFloat(245.32); // @output true
+                            // @output false
+    subtypeIntFloat(.99); // @output true
+                            // @output false
+    subtypeIntFloat(25.e1742); // @output true
+                                // @output false
+    subtypeIntFloat(243.32e1742); // @output true
+                                    // @output false
+    subtypeIntFloat(.99E1742); // @output true
+                                // @output false
+    subtypeIntFloat(25.e+1742); // @output true
+                                    // @output false
+    subtypeIntFloat(245.32E-1742); // @output true
+                                    // @output false
+    subtypeIntFloat(.99e+1742); // @output true
+                                // @output false
+    subtypeIntFloat(25); // @output false
+                            // @output true
+    subtypeIntFloat(9.99E+6111); // @output true 
+                                    // @output false
+    subtypeIntFloat(1E-6176); // @output true
+                                // @output false
+
+    subtypeIntFloat(0x3eA3p34); // @output true
+                                // @output false 
+    subtypeIntFloat(0x3eA3P34); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3p34); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3P34); // @output true
+                                // @output false
+    subtypeIntFloat(0x3eA3p+34); // @output true
+                                // @output false
+    subtypeIntFloat(0x3eA3P-34); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3p+34); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3P-34); // @output true
+                                // @output false
+    subtypeIntFloat(0x3eA3.4Eb2); // @output true
+                                    // @output false
+    subtypeIntFloat(0x.4Eb2); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3.4Eb2); // @output true
+                                    // @output false
+    subtypeIntFloat(0X.4Eb2); // @output true
+                                // @output false
+    subtypeIntFloat(0x3eA3.4Eb2p45); // @output true
+                                    // @output false
+    subtypeIntFloat(0x3eA3.4Eb2P45); // @output true
+                                    // @output false
+    subtypeIntFloat(0x.4Eb2p45); // @output true
+                                // @output false
+    subtypeIntFloat(0x.4Eb2P45); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3.4Eb2p45); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3.4Eb2P45); // @output true
+                            // @output false
+    subtypeIntFloat(0X.4Eb2p45); // @output true
+                            // @output false
+    subtypeIntFloat(0X.4Eb2P45); // @output true
+                            // @output false
+    subtypeIntFloat(0x3eA3.4Eb2p+45); // @output true
+                                // @output false
+    subtypeIntFloat(0x3eA3.4Eb2P-45); // @output true
+                                    // @output false
+    subtypeIntFloat(0x.4Eb2p+45); // @output true
+                                // @output false
+    subtypeIntFloat(0x.4Eb2P-45); // @output true
+                                // @output false
+    subtypeIntFloat(0X3eA3.4Eb2p+45); // @output true
+                                    // @output false
+    subtypeIntFloat(0X3eA3.4Eb2P-45); // @output true
+                                // @output false
+    subtypeIntFloat(0X.4Eb2p+45); // @output true
+                                // @output false
+    subtypeIntFloat(0X.4Eb2P-45); // @output true
+                                // @output false  
+    subtypeIntFloat(0x12aB); // @output false
+                                // @output true                                                
+}
+
+public function subtypeIntFloatDecimal(int|float|decimal x) {
+    io:println(x is float);
+    io:println(x is int); 
+    io:println(x is decimal);
+}
+
+public function subtypeFloatDecimal(float|decimal x) {
+    io:println(x is float);
+    io:println(x is decimal);
+}
+
+Test-Case: output
+Description: Test the basic type when the applicable contextually expected type is not a subtype of either decimal or
+             float with floating point literal.
+Labels: decimal, float, int, is-expr, HexFloatingPointLiteral
+
+public function main() {
+    subtypeFloatDecimal(25e1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(25e+1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(25e1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(25E-1742); // @output true
+                                 // @output false
+    subtypeFloatDecimal(25.); // @output true
+                            // @output false
+    subtypeFloatDecimal(245.32); // @output true
+                            // @output false
+    subtypeFloatDecimal(.99); // @output true
+                            // @output false
+    subtypeFloatDecimal(25.e1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(243.32e1742); // @output true
+                                    // @output false
+    subtypeFloatDecimal(.99E1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(25.e+1742); // @output true
+                                    // @output false
+    subtypeFloatDecimal(245.32E-1742); // @output true
+                                    // @output false
+    subtypeFloatDecimal(.99e+1742); // @output true
+                                // @output false
+    subtypeFloatDecimal(25); // @output false
+                            // @output true
+    subtypeFloatDecimal(9.99E+6111); // @output true 
+                                    // @output false
+    subtypeFloatDecimal(1E-6176); // @output true
+                                // @output false
+
+    subtypeFloatDecimal(0x3eA3p34); // @output true
+                                // @output false 
+    subtypeFloatDecimal(0x3eA3P34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3p34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3P34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x3eA3p+34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x3eA3P-34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3p+34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3P-34); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x3eA3.4Eb2); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0x.4Eb2); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3.4Eb2); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0X.4Eb2); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x3eA3.4Eb2p45); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0x3eA3.4Eb2P45); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0x.4Eb2p45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x.4Eb2P45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3.4Eb2p45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3.4Eb2P45); // @output true
+                            // @output false
+    subtypeFloatDecimal(0X.4Eb2p45); // @output true
+                            // @output false
+    subtypeFloatDecimal(0X.4Eb2P45); // @output true
+                            // @output false
+    subtypeFloatDecimal(0x3eA3.4Eb2p+45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x3eA3.4Eb2P-45); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0x.4Eb2p+45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0x.4Eb2P-45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X3eA3.4Eb2p+45); // @output true
+                                    // @output false
+    subtypeFloatDecimal(0X3eA3.4Eb2P-45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X.4Eb2p+45); // @output true
+                                // @output false
+    subtypeFloatDecimal(0X.4Eb2P-45); // @output true
+                                // @output false  
+    subtypeFloatDecimal(0x12aB); // @output false
+                                // @output true
+
+    subtypeIntFloatDecimal(25e1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(25e+1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(25e1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(25E-1742); // @output true
+                                 // @output false
+                                 // @output false
+
+    subtypeIntFloatDecimal(25.); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(245.32); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(.99); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(25.e1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(243.32e1742); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(.99E1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(25.e+1742); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(245.32E-1742); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(.99e+1742); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(9.99E+6111); // @output true 
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(1E-6176); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3p34); // @output true
+                                // @output false 
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3P34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3p34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3P34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3p+34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3P-34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3p+34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3P-34); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3.4Eb2); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0x.4Eb2); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3.4Eb2); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0X.4Eb2); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3.4Eb2p45); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0x3eA3.4Eb2P45); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0x.4Eb2p45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x.4Eb2P45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3.4Eb2p45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3.4Eb2P45); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(0X.4Eb2p45); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(0X.4Eb2P45); // @output true
+                            // @output false
+                            // @output false
+
+    subtypeIntFloatDecimal(0x3eA3.4Eb2p+45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x3eA3.4Eb2P-45); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0x.4Eb2p+45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0x.4Eb2P-45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X3eA3.4Eb2p+45); // @output true
+                                    // @output false
+                                    // @output false
+
+    subtypeIntFloatDecimal(0X3eA3.4Eb2P-45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X.4Eb2p+45); // @output true
+                                // @output false
+                                // @output false
+
+    subtypeIntFloatDecimal(0X.4Eb2P-45); // @output true
+                                // @output false  
+                                // @output false
 }
 
 
